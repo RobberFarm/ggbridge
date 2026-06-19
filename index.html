@@ -216,12 +216,6 @@
         font-size: 0.85rem;
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .platform-pill span {
-        font-size: 1.1rem;
       }
 
       /* SECTIONS */
@@ -284,14 +278,11 @@
         right: 20px;
         line-height: 1;
       }
-      .step-icon {
-        font-size: 2rem;
-        margin-bottom: 16px;
-      }
       .step h3 {
         font-weight: 700;
         margin-bottom: 8px;
         font-size: 1rem;
+        margin-top: 8px;
       }
       .step p {
         color: var(--muted);
@@ -363,7 +354,7 @@
         color: var(--text);
       }
       .service-list li::before {
-        content: "✓";
+        content: "+";
         color: var(--green);
         font-weight: 700;
         flex-shrink: 0;
@@ -419,10 +410,14 @@
         background: linear-gradient(135deg, #1a0a2a, #0a1a2a);
         border: 1px solid #aa2fff44;
       }
-      .sale-emoji {
-        font-size: 2rem;
+      .sale-icon {
+        font-size: 1.5rem;
+        font-weight: 800;
+        font-family: "Syne", sans-serif;
+        color: rgba(255, 255, 255, 0.15);
         margin-bottom: 12px;
         display: block;
+        letter-spacing: -0.02em;
       }
       .sale-name {
         font-family: "Syne", sans-serif;
@@ -489,10 +484,13 @@
         align-items: flex-start;
         gap: 14px;
       }
-      .trust-icon {
-        font-size: 1.3rem;
+      .trust-bullet {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--grad);
         flex-shrink: 0;
-        margin-top: 2px;
+        margin-top: 8px;
       }
       .trust-text strong {
         display: block;
@@ -567,11 +565,46 @@
       .form-submit:hover {
         opacity: 0.9;
       }
+      .form-submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
       .form-note {
         text-align: center;
         font-size: 0.8rem;
         color: var(--muted);
         margin-top: 12px;
+      }
+      .form-note a {
+        color: var(--green);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .form-success {
+        display: none;
+        text-align: center;
+        padding: 32px 16px;
+      }
+      .form-success h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .form-success p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+      .form-success a {
+        background: #25d366;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: inline-block;
       }
 
       /* TESTIMONIALS */
@@ -682,7 +715,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: gap;
+        flex-wrap: wrap;
+        gap: 16px;
       }
       .footer-copy {
         color: var(--muted);
@@ -739,7 +773,6 @@
         }
         .footer-bottom {
           flex-direction: column;
-          gap: 16px;
           text-align: center;
         }
       }
@@ -761,14 +794,14 @@
     <!-- TICKER -->
     <div class="ticker-wrap" style="margin-top: 64px">
       <div class="ticker-track">
-        <span>🔥 GG Summer Drop is LIVE — FIFA 25 from ₦18,000</span>
-        <span>🎮 PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
-        <span>⚡ Instant delivery on digital keys</span>
-        <span>✅ Trusted by Nigerian gamers — Pay in Naira</span>
-        <span>🔥 GG Summer Drop is LIVE — FIFA 25 from ₦18,000</span>
-        <span>🎮 PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
-        <span>⚡ Instant delivery on digital keys</span>
-        <span>✅ Trusted by Nigerian gamers — Pay in Naira</span>
+        <span>GG Summer Drop is LIVE — FIFA 25 from N18,000</span>
+        <span>PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
+        <span>Instant delivery on digital keys</span>
+        <span>Trusted by Nigerian gamers — Pay in Naira</span>
+        <span>GG Summer Drop is LIVE — FIFA 25 from N18,000</span>
+        <span>PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
+        <span>Instant delivery on digital keys</span>
+        <span>Trusted by Nigerian gamers — Pay in Naira</span>
       </div>
     </div>
 
@@ -787,12 +820,12 @@
         <a href="#deals" class="btn-ghost">See Current Deals</a>
       </div>
       <div class="hero-platforms">
-        <div class="platform-pill"><span>🎮</span> PlayStation</div>
-        <div class="platform-pill"><span>🟢</span> Xbox</div>
-        <div class="platform-pill"><span>🖥️</span> Steam</div>
-        <div class="platform-pill"><span>📱</span> Mobile Games</div>
-        <div class="platform-pill"><span>🟡</span> Nintendo</div>
-        <div class="platform-pill"><span>🛒</span> Epic Games</div>
+        <div class="platform-pill">PlayStation</div>
+        <div class="platform-pill">Xbox</div>
+        <div class="platform-pill">Steam</div>
+        <div class="platform-pill">Mobile Games</div>
+        <div class="platform-pill">Nintendo</div>
+        <div class="platform-pill">Epic Games</div>
       </div>
     </section>
 
@@ -807,7 +840,6 @@
         <div class="steps">
           <div class="step">
             <div class="step-num">01</div>
-            <div class="step-icon">🎯</div>
             <h3>Pick Your Game or Top-Up</h3>
             <p>
               Tell us what you want — a game key, platform credit, or mobile
@@ -816,7 +848,6 @@
           </div>
           <div class="step">
             <div class="step-num">02</div>
-            <div class="step-icon">💳</div>
             <h3>Pay in Naira</h3>
             <p>
               We send you a payment link or bank transfer details. No dollar
@@ -825,7 +856,6 @@
           </div>
           <div class="step">
             <div class="step-num">03</div>
-            <div class="step-icon">⚡</div>
             <h3>Get Your Game</h3>
             <p>
               We deliver your key or complete your purchase and send proof. Most
@@ -913,7 +943,7 @@
         <div class="sales-grid">
           <div class="sale-card sale-summer">
             <span class="sale-badge active">Live Now</span>
-            <span class="sale-emoji">☀️</span>
+            <span class="sale-icon">SUMMER</span>
             <div class="sale-name">GG Summer Drop</div>
             <div class="sale-period">June – July</div>
             <div class="sale-desc">
@@ -923,7 +953,7 @@
           </div>
           <div class="sale-card sale-winter">
             <span class="sale-badge">December</span>
-            <span class="sale-emoji">❄️</span>
+            <span class="sale-icon">WINTER</span>
             <div class="sale-name">Freeze Frame Sale</div>
             <div class="sale-period">December – January</div>
             <div class="sale-desc">
@@ -933,7 +963,7 @@
           </div>
           <div class="sale-card sale-black">
             <span class="sale-badge">November</span>
-            <span class="sale-emoji">🖤</span>
+            <span class="sale-icon">BLACK</span>
             <div class="sale-name">The Black Cartridge</div>
             <div class="sale-period">Black Friday Week</div>
             <div class="sale-desc">
@@ -943,7 +973,7 @@
           </div>
           <div class="sale-card sale-spring">
             <span class="sale-badge">March</span>
-            <span class="sale-emoji">🌱</span>
+            <span class="sale-icon">SPRING</span>
             <div class="sale-name">Level Up Season</div>
             <div class="sale-period">March – April</div>
             <div class="sale-desc">
@@ -953,7 +983,7 @@
           </div>
           <div class="sale-card sale-halloween">
             <span class="sale-badge">October</span>
-            <span class="sale-emoji">👻</span>
+            <span class="sale-icon">NIGHT</span>
             <div class="sale-name">Respawn Night</div>
             <div class="sale-period">Halloween Week</div>
             <div class="sale-desc">
@@ -963,7 +993,7 @@
           </div>
           <div class="sale-card sale-back">
             <span class="sale-badge">August</span>
-            <span class="sale-emoji">🎒</span>
+            <span class="sale-icon">NEW+</span>
             <div class="sale-name">New Game+ Sale</div>
             <div class="sale-period">August – September</div>
             <div class="sale-desc">
@@ -973,7 +1003,7 @@
           </div>
           <div class="sale-card sale-val">
             <span class="sale-badge">February</span>
-            <span class="sale-emoji">🎮</span>
+            <span class="sale-icon">P2</span>
             <div class="sale-name">2-Player Deal</div>
             <div class="sale-period">Valentine's Week</div>
             <div class="sale-desc">
@@ -983,7 +1013,7 @@
           </div>
           <div class="sale-card sale-easter">
             <span class="sale-badge">April</span>
-            <span class="sale-emoji">🥚</span>
+            <span class="sale-icon">+LIFE</span>
             <div class="sale-name">Extra Life Sale</div>
             <div class="sale-period">Easter Weekend</div>
             <div class="sale-desc">
@@ -1001,14 +1031,14 @@
         <div class="order-wrap">
           <div class="order-info">
             <p class="section-label">Place an Order</p>
-            <h2 class="section-title">Ready to Play?</h2>
+            <h2>Ready to Play?</h2>
             <p>
-              Fill in your details and we'll get back to you on WhatsApp with
-              your price and payment details. Most orders completed same day.
+              Fill in your details and we'll reach out on WhatsApp with your
+              price and payment details. Most orders completed same day.
             </p>
             <div class="trust-items">
               <div class="trust-item">
-                <div class="trust-icon">💬</div>
+                <div class="trust-bullet"></div>
                 <div class="trust-text">
                   <strong>WhatsApp Confirmation</strong>
                   <span
@@ -1017,14 +1047,14 @@
                 </div>
               </div>
               <div class="trust-item">
-                <div class="trust-icon">⚡</div>
+                <div class="trust-bullet"></div>
                 <div class="trust-text">
                   <strong>Same-Day Fulfillment</strong>
                   <span>Most orders done within hours of payment.</span>
                 </div>
               </div>
               <div class="trust-item">
-                <div class="trust-icon">🔒</div>
+                <div class="trust-bullet"></div>
                 <div class="trust-text">
                   <strong>100% Naira Payments</strong>
                   <span
@@ -1033,7 +1063,7 @@
                 </div>
               </div>
               <div class="trust-item">
-                <div class="trust-icon">📸</div>
+                <div class="trust-bullet"></div>
                 <div class="trust-text">
                   <strong>Proof Sent Always</strong>
                   <span
@@ -1044,48 +1074,91 @@
             </div>
           </div>
           <div class="order-form">
-            <div class="form-title">New Order Request</div>
-            <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="e.g. Chukwuemeka" />
+            <div id="formWrap">
+              <div class="form-title">New Order Request</div>
+
+              <!--
+            GOOGLE FORM SETUP INSTRUCTIONS:
+            1. Go to forms.google.com and create a new form with these fields:
+               - Short answer: "Your Name"
+               - Short answer: "WhatsApp Number"
+               - Dropdown: "Service Type"
+               - Paragraph: "Order Details"
+            2. Click the 3-dot menu > Get pre-filled link
+            3. Fill in dummy values, click Get Link, copy the URL
+            4. From that URL extract the entry IDs (entry.XXXXXXXXX) for each field
+            5. Replace the action URL below with your form's action URL:
+               Change: https://docs.google.com/forms/d/YOUR_FORM_ID/formResponse
+            6. Replace each entry.XXXXXXXXX with your actual entry IDs
+          -->
+              <div class="form-group">
+                <label>Your Name</label>
+                <input
+                  type="text"
+                  id="f-name"
+                  placeholder="e.g. Chukwuemeka"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>WhatsApp Number</label>
+                <input
+                  type="tel"
+                  id="f-phone"
+                  placeholder="+234 800 000 0000"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Service Type</label>
+                <select id="f-service" required>
+                  <option value="">Select a service...</option>
+                  <option>PSN — Top-Up or Game Purchase</option>
+                  <option>Xbox — Credits or Game Pass</option>
+                  <option>Steam — Wallet or Game Key</option>
+                  <option>Mobile Legends — Diamonds</option>
+                  <option>PUBG Mobile — UC</option>
+                  <option>Free Fire — Diamonds</option>
+                  <option>Roblox — Robux</option>
+                  <option>COD Mobile — Points</option>
+                  <option>Nintendo eShop</option>
+                  <option>Epic Games / V-Bucks</option>
+                  <option>Other — I'll explain below</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>What exactly do you need?</label>
+                <textarea
+                  id="f-details"
+                  placeholder="e.g. FIFA 25 on Steam, or $20 PSN top-up, or 3000 Diamonds — ML account: example@email.com"
+                  required
+                ></textarea>
+              </div>
+              <button
+                class="form-submit"
+                id="submitBtn"
+                onclick="submitToGoogleForm(event)"
+              >
+                Send Order Request
+              </button>
+              <p class="form-note">
+                Or message us directly —
+                <a href="https://wa.me/23409160429429" target="_blank"
+                  >chat on WhatsApp</a
+                >
+              </p>
             </div>
-            <div class="form-group">
-              <label>WhatsApp Number</label>
-              <input type="tel" placeholder="+234 800 000 0000" />
+
+            <div class="form-success" id="successMsg">
+              <h3>Order Received</h3>
+              <p>
+                We have your request and will reach out on WhatsApp shortly to
+                confirm your price and payment details.
+              </p>
+              <a href="https://wa.me/23409160429429" target="_blank"
+                >Message us on WhatsApp</a
+              >
             </div>
-            <div class="form-group">
-              <label>Service Type</label>
-              <select>
-                <option value="">Select a service...</option>
-                <option>PSN — Top-Up or Game Purchase</option>
-                <option>Xbox — Credits or Game Pass</option>
-                <option>Steam — Wallet or Game Key</option>
-                <option>Mobile Legends — Diamonds</option>
-                <option>PUBG Mobile — UC</option>
-                <option>Free Fire — Diamonds</option>
-                <option>Roblox — Robux</option>
-                <option>COD Mobile — Points</option>
-                <option>Nintendo eShop</option>
-                <option>Epic Games / V-Bucks</option>
-                <option>Other — I'll explain below</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>What exactly do you need?</label>
-              <textarea
-                placeholder="e.g. FIFA 25 on Steam, or $20 PSN top-up, or 3000 Diamonds on ML account: example@email.com"
-              ></textarea>
-            </div>
-            <button
-              class="form-submit"
-              onclick="alert('Order received! We will reach out on WhatsApp shortly. Thank you! 🎮')"
-            >
-              Send Order Request →
-            </button>
-            <p class="form-note">
-              Or message us directly on <strong>WhatsApp</strong> for faster
-              response
-            </p>
           </div>
         </div>
       </div>
@@ -1160,31 +1233,96 @@
           <div class="footer-col">
             <h4>Services</h4>
             <ul>
-              <li><a href="#">PSN Top-Up</a></li>
-              <li><a href="#">Steam Wallet</a></li>
-              <li><a href="#">Xbox Credits</a></li>
-              <li><a href="#">Mobile Top-Ups</a></li>
-              <li><a href="#">Game Key Sales</a></li>
+              <li><a href="#services">PSN Top-Up</a></li>
+              <li><a href="#services">Steam Wallet</a></li>
+              <li><a href="#services">Xbox Credits</a></li>
+              <li><a href="#services">Mobile Top-Ups</a></li>
+              <li><a href="#services">Game Key Sales</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Sale Events</h4>
             <ul>
-              <li><a href="#">GG Summer Drop</a></li>
-              <li><a href="#">The Black Cartridge</a></li>
-              <li><a href="#">Freeze Frame Sale</a></li>
-              <li><a href="#">Level Up Season</a></li>
-              <li><a href="#">Respawn Night</a></li>
+              <li><a href="#deals">GG Summer Drop</a></li>
+              <li><a href="#deals">The Black Cartridge</a></li>
+              <li><a href="#deals">Freeze Frame Sale</a></li>
+              <li><a href="#deals">Level Up Season</a></li>
+              <li><a href="#deals">Respawn Night</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
           <p class="footer-copy">© 2025 GGBridge. Pay Local. Play Global.</p>
-          <a href="https://wa.me/234XXXXXXXXXX" class="footer-wa">
-            <span>💬</span> Chat on WhatsApp
-          </a>
+          <a
+            href="https://wa.me/23409160429429"
+            target="_blank"
+            class="footer-wa"
+            >Chat on WhatsApp</a
+          >
         </div>
       </div>
     </footer>
+
+    <script>
+      function submitToGoogleForm(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("f-name").value.trim();
+        const phone = document.getElementById("f-phone").value.trim();
+        const service = document.getElementById("f-service").value;
+        const details = document.getElementById("f-details").value.trim();
+
+        if (!name || !phone || !service || !details) {
+          alert("Please fill in all fields before submitting.");
+          return;
+        }
+
+        const btn = document.getElementById("submitBtn");
+        btn.textContent = "Sending...";
+        btn.disabled = true;
+
+        const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
+        const ENTRY_NAME = "entry.XXXXXXXXX";
+        const ENTRY_PHONE = "entry.XXXXXXXXX";
+        const ENTRY_SERVICE = "entry.XXXXXXXXX";
+        const ENTRY_DETAILS = "entry.XXXXXXXXX";
+
+        const formURL = `https://docs.google.com/forms/d/${GOOGLE_FORM_ID}/formResponse`;
+
+        const params = new URLSearchParams();
+        params.append(ENTRY_NAME, name);
+        params.append(ENTRY_PHONE, phone);
+        params.append(ENTRY_SERVICE, service);
+        params.append(ENTRY_DETAILS, details);
+
+        // Google Forms does not support CORS so we use a hidden iframe to POST silently
+        const iframe = document.createElement("iframe");
+        iframe.name = "gg-submit-frame";
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+
+        const hiddenForm = document.createElement("form");
+        hiddenForm.method = "POST";
+        hiddenForm.action = formURL;
+        hiddenForm.target = "gg-submit-frame";
+
+        params.forEach((value, key) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          input.value = value;
+          hiddenForm.appendChild(input);
+        });
+
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+
+        // Show success state after short delay (iframe load time)
+        setTimeout(() => {
+          document.getElementById("formWrap").style.display = "none";
+          document.getElementById("successMsg").style.display = "block";
+        }, 1200);
+      }
+    </script>
   </body>
 </html>
