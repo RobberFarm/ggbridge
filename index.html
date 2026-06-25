@@ -377,6 +377,8 @@
         padding: 24px;
         position: relative;
         overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          border-color 0.25s ease;
       }
       .sale-summer {
         background: linear-gradient(135deg, #1a0a3e, #0a1a3e);
@@ -409,6 +411,12 @@
       .sale-easter {
         background: linear-gradient(135deg, #1a0a2a, #0a1a2a);
         border: 1px solid #aa2fff44;
+      }
+      /* Auto-active state: applied by JS to whichever card is currently live */
+      .sale-card.is-live {
+        transform: translateY(-4px);
+        box-shadow: 0 0 0 1px rgba(0, 232, 122, 0.4),
+          0 12px 32px rgba(0, 232, 122, 0.12);
       }
       .sale-icon {
         font-size: 1.5rem;
@@ -734,13 +742,17 @@
     </nav>
 
     <!-- TICKER -->
-    <div class="ticker-wrap" style="margin-top: 64px">
-      <div class="ticker-track">
-        <span>GG Summer Drop is LIVE — FIFA 25 from N18,000</span>
+    <div class="ticker-wrap" style="margin-top: 64px" id="ticker-wrap">
+      <div class="ticker-track" id="ticker-track">
+        <span id="ticker-live-1"
+          >GG Summer Drop is LIVE — FIFA 25 from N18,000</span
+        >
         <span>PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
         <span>Instant delivery on digital keys</span>
         <span>Trusted by Nigerian gamers — Pay in Naira</span>
-        <span>GG Summer Drop is LIVE — FIFA 25 from N18,000</span>
+        <span id="ticker-live-2"
+          >GG Summer Drop is LIVE — FIFA 25 from N18,000</span
+        >
         <span>PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
         <span>Instant delivery on digital keys</span>
         <span>Trusted by Nigerian gamers — Pay in Naira</span>
@@ -749,8 +761,9 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-badge">
-        <span class="badge-dot"></span> GG Summer Drop — Now Live
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        <span id="hero-badge-text">GG Summer Drop — Now Live</span>
       </div>
       <h1>Pay Local.<br /><span>Play Global.</span></h1>
       <p>
@@ -879,13 +892,20 @@
         <p class="section-label">GGBridge Sale Events</p>
         <h2 class="section-title">Our Seasonal Sales</h2>
         <p class="section-sub">
-          We run campaigns aligned to global gaming sales. Watch this space —
-          deals come fast.
+          We run campaigns aligned to global gaming sales. Whichever one is live
+          right now lights up automatically.
         </p>
         <div class="sales-grid">
-          <div class="sale-card sale-summer">
-            <span class="sale-badge active">Live Now</span
-            ><span class="sale-icon">SUMMER</span>
+          <!-- data-start / data-end use MM-DD format. data-name is used in the hero badge + ticker when this sale is live -->
+          <div
+            class="sale-card sale-summer"
+            data-sale="summer"
+            data-start="06-01"
+            data-end="07-31"
+            data-name="GG Summer Drop"
+          >
+            <span class="sale-badge" data-badge>June – July</span>
+            <span class="sale-icon">SUMMER</span>
             <div class="sale-name">GG Summer Drop</div>
             <div class="sale-period">June – July</div>
             <div class="sale-desc">
@@ -893,9 +913,15 @@
               aligned with global summer sales.
             </div>
           </div>
-          <div class="sale-card sale-winter">
-            <span class="sale-badge">December</span
-            ><span class="sale-icon">WINTER</span>
+          <div
+            class="sale-card sale-winter"
+            data-sale="winter"
+            data-start="12-01"
+            data-end="01-15"
+            data-name="Freeze Frame Sale"
+          >
+            <span class="sale-badge" data-badge>December</span>
+            <span class="sale-icon">WINTER</span>
             <div class="sale-name">Freeze Frame Sale</div>
             <div class="sale-period">December – January</div>
             <div class="sale-desc">
@@ -903,9 +929,15 @@
               the deals to your WhatsApp.
             </div>
           </div>
-          <div class="sale-card sale-black">
-            <span class="sale-badge">November</span
-            ><span class="sale-icon">BLACK</span>
+          <div
+            class="sale-card sale-black"
+            data-sale="black"
+            data-start="11-20"
+            data-end="11-30"
+            data-name="The Black Cartridge"
+          >
+            <span class="sale-badge" data-badge>November</span>
+            <span class="sale-icon">BLACK</span>
             <div class="sale-name">The Black Cartridge</div>
             <div class="sale-period">Black Friday Week</div>
             <div class="sale-desc">
@@ -913,9 +945,15 @@
               served. No jokes.
             </div>
           </div>
-          <div class="sale-card sale-spring">
-            <span class="sale-badge">March</span
-            ><span class="sale-icon">SPRING</span>
+          <div
+            class="sale-card sale-spring"
+            data-sale="spring"
+            data-start="03-01"
+            data-end="04-15"
+            data-name="Level Up Season"
+          >
+            <span class="sale-badge" data-badge>March</span>
+            <span class="sale-icon">SPRING</span>
             <div class="sale-name">Level Up Season</div>
             <div class="sale-period">March – April</div>
             <div class="sale-desc">
@@ -923,9 +961,15 @@
               underrated gems.
             </div>
           </div>
-          <div class="sale-card sale-halloween">
-            <span class="sale-badge">October</span
-            ><span class="sale-icon">NIGHT</span>
+          <div
+            class="sale-card sale-halloween"
+            data-sale="halloween"
+            data-start="10-25"
+            data-end="10-31"
+            data-name="Respawn Night"
+          >
+            <span class="sale-badge" data-badge>October</span>
+            <span class="sale-icon">NIGHT</span>
             <div class="sale-name">Respawn Night</div>
             <div class="sale-period">Halloween Week</div>
             <div class="sale-desc">
@@ -933,9 +977,15 @@
               but these prices won't.
             </div>
           </div>
-          <div class="sale-card sale-back">
-            <span class="sale-badge">August</span
-            ><span class="sale-icon">NEW+</span>
+          <div
+            class="sale-card sale-back"
+            data-sale="back"
+            data-start="08-01"
+            data-end="09-15"
+            data-name="New Game+ Sale"
+          >
+            <span class="sale-badge" data-badge>August</span>
+            <span class="sale-icon">NEW+</span>
             <div class="sale-name">New Game+ Sale</div>
             <div class="sale-period">August – September</div>
             <div class="sale-desc">
@@ -943,9 +993,15 @@
               missed all year.
             </div>
           </div>
-          <div class="sale-card sale-val">
-            <span class="sale-badge">February</span
-            ><span class="sale-icon">P2</span>
+          <div
+            class="sale-card sale-val"
+            data-sale="valentine"
+            data-start="02-10"
+            data-end="02-17"
+            data-name="2-Player Deal"
+          >
+            <span class="sale-badge" data-badge>February</span>
+            <span class="sale-icon">P2</span>
             <div class="sale-name">2-Player Deal</div>
             <div class="sale-period">Valentine's Week</div>
             <div class="sale-desc">
@@ -953,9 +1009,15 @@
               and duo bundles.
             </div>
           </div>
-          <div class="sale-card sale-easter">
-            <span class="sale-badge">April</span
-            ><span class="sale-icon">+LIFE</span>
+          <div
+            class="sale-card sale-easter"
+            data-sale="easter"
+            data-start="04-16"
+            data-end="04-22"
+            data-name="Extra Life Sale"
+          >
+            <span class="sale-badge" data-badge>April</span>
+            <span class="sale-icon">+LIFE</span>
             <div class="sale-name">Extra Life Sale</div>
             <div class="sale-period">Easter Weekend</div>
             <div class="sale-desc">
@@ -1138,5 +1200,102 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        // Returns true if today's MM-DD falls within start..end (handles ranges that wrap across Dec 31 -> Jan 1, e.g. winter sale)
+        function isDateInRange(today, start, end) {
+          if (start <= end) {
+            return today >= start && today <= end;
+          }
+          // wraps the new year (e.g. 12-01 -> 01-15)
+          return today >= start || today <= end;
+        }
+
+        function pad(n) {
+          return String(n).padStart(2, "0");
+        }
+
+        function refreshActiveSale() {
+          var now = new Date();
+          var todayKey = pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+
+          var cards = document.querySelectorAll(".sale-card[data-sale]");
+          var liveCard = null;
+
+          cards.forEach(function (card) {
+            var start = card.getAttribute("data-start");
+            var end = card.getAttribute("data-end");
+            var badge = card.querySelector("[data-badge]");
+            var periodLabel = card.querySelector(".sale-period").textContent;
+
+            var isLive = isDateInRange(todayKey, start, end);
+
+            card.classList.toggle("is-live", isLive);
+
+            if (badge) {
+              if (isLive) {
+                badge.textContent = "Live Now";
+                badge.classList.add("active");
+              } else {
+                badge.classList.remove("active");
+                badge.textContent = periodLabel;
+              }
+            }
+
+            if (isLive && !liveCard) {
+              liveCard = card; // first match wins if ranges ever overlap
+            }
+          });
+
+          // Update hero badge + ticker to reflect whichever sale is live (or fall back to a neutral message)
+          var heroBadgeText = document.getElementById("hero-badge-text");
+          var ticker1 = document.getElementById("ticker-live-1");
+          var ticker2 = document.getElementById("ticker-live-2");
+
+          if (liveCard) {
+            var saleName = liveCard.getAttribute("data-name");
+            if (heroBadgeText)
+              heroBadgeText.textContent = saleName + " — Now Live";
+            if (ticker1)
+              ticker1.textContent =
+                saleName + " is LIVE — check our current deals";
+            if (ticker2)
+              ticker2.textContent =
+                saleName + " is LIVE — check our current deals";
+          } else {
+            if (heroBadgeText)
+              heroBadgeText.textContent = "New Deals Dropping Soon";
+            if (ticker1)
+              ticker1.textContent = "Check back soon for our next sale event";
+            if (ticker2)
+              ticker2.textContent = "Check back soon for our next sale event";
+          }
+        }
+
+        // Run on load
+        document.addEventListener("DOMContentLoaded", refreshActiveSale);
+
+        // Re-check at the next local midnight, then every 24h after that,
+        // so the banner flips over automatically without anyone refreshing the page.
+        function scheduleMidnightRefresh() {
+          var now = new Date();
+          var nextMidnight = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate() + 1,
+            0,
+            5,
+            0
+          );
+          var msUntilMidnight = nextMidnight - now;
+          setTimeout(function () {
+            refreshActiveSale();
+            setInterval(refreshActiveSale, 24 * 60 * 60 * 1000);
+          }, msUntilMidnight);
+        }
+        scheduleMidnightRefresh();
+      })();
+    </script>
   </body>
 </html>
