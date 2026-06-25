@@ -1142,7 +1142,9 @@
               </button>
               <p class="form-note">
                 Or message us directly —
-                <a href="https://wa.me/23409160429429" target="_blank"
+                <a
+                  href="https://wa.me/2347077599508?text=Hey%20GGBridge,%20my%20name%20is%20______.%20I%20am%20interested%20in%20______."
+                  target="_blank"
                   >chat on WhatsApp</a
                 >
               </p>
@@ -1154,7 +1156,9 @@
                 We have your request and will reach out on WhatsApp shortly to
                 confirm your price and payment details.
               </p>
-              <a href="https://wa.me/23409160429429" target="_blank"
+              <a
+                href="https://wa.me/2347077599508?text=Hey%20GGBridge,%20my%20name%20is%20______.%20I%20am%20interested%20in%20______."
+                target="_blank"
                 >Message us on WhatsApp</a
               >
             </div>
@@ -1251,9 +1255,9 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p class="footer-copy">© 2025 GGBridge. Pay Local. Play Global.</p>
+          <p class="footer-copy">© 2026 GGBridge. Pay Local. Play Global.</p>
           <a
-            href="https://wa.me/23409160429429"
+            href="https://wa.me/2347077599508?text=Hi%20GGBridge%20team!%20My%20name%20is%20______.%20I%20just%20visited%20your%20website%20and%20I%E2%80%99m%20interested%20in%20buying%20games.%20Please%20guide%20me%20on%20how%20it%20works."
             target="_blank"
             class="footer-wa"
             >Chat on WhatsApp</a
@@ -1280,13 +1284,13 @@
         btn.textContent = "Sending...";
         btn.disabled = true;
 
-        const GOOGLE_FORM_ID = "YOUR_FORM_ID_HERE";
-        const ENTRY_NAME = "entry.XXXXXXXXX";
-        const ENTRY_PHONE = "entry.XXXXXXXXX";
-        const ENTRY_SERVICE = "entry.XXXXXXXXX";
-        const ENTRY_DETAILS = "entry.XXXXXXXXX";
+        const formURL =
+          "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeXh_Uli88-4A8DSgGFQTy8b1fRnoR5yCJqKOVefoyuSBL-AA/formResponse";
 
-        const formURL = `https://docs.google.com/forms/d/${GOOGLE_FORM_ID}/formResponse`;
+        const ENTRY_NAME = "entry.1827855002";
+        const ENTRY_PHONE = "entry.1347435463";
+        const ENTRY_SERVICE = "entry.439780086";
+        const ENTRY_DETAILS = "entry.1482564294";
 
         const params = new URLSearchParams();
         params.append(ENTRY_NAME, name);
@@ -1294,7 +1298,6 @@
         params.append(ENTRY_SERVICE, service);
         params.append(ENTRY_DETAILS, details);
 
-        // Google Forms does not support CORS so we use a hidden iframe to POST silently
         const iframe = document.createElement("iframe");
         iframe.name = "gg-submit-frame";
         iframe.style.display = "none";
@@ -1316,7 +1319,6 @@
         document.body.appendChild(hiddenForm);
         hiddenForm.submit();
 
-        // Show success state after short delay (iframe load time)
         setTimeout(() => {
           document.getElementById("formWrap").style.display = "none";
           document.getElementById("successMsg").style.display = "block";
