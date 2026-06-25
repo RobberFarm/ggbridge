@@ -41,7 +41,7 @@
         overflow-x: hidden;
       }
 
-      /* NAV */
+      /* ── NAV ── */
       nav {
         position: fixed;
         top: 0;
@@ -89,20 +89,66 @@
         font-size: 0.85rem;
       }
 
-      /* HERO */
+      /* ── HERO ── */
       .hero {
-        min-height: 100vh;
+        min-height: calc(100vh - 64px);
+        margin-top: 64px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         text-align: center;
-        padding: 120px 24px 80px;
         position: relative;
         overflow: hidden;
+
+        /* ───────────────────────────────────────────────────────────────
+           REVERT INSTRUCTIONS: HOW THE BUTTONS WERE PUSHED DOWN
+           If you want to bring the buttons back to the absolute center:
+           1. Change 'justify-content: flex-end;' to 'justify-content: center;'
+           2. Change 'padding: 60px 24px 95px;' to 'padding: 120px 24px 80px;'
+           ─────────────────────────────────────────────────────────────── */
+        justify-content: flex-end;
+        padding: 60px 24px 95px;
       }
-      .hero::before {
-        content: "";
+
+      /* ── SLIDER BACKGROUND ── */
+      .hero-slides {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+      .hero-slide.active {
+        opacity: 1;
+      }
+
+      .hero-slide:nth-child(1) {
+        background-image: url("image/slide-1.jpg");
+      }
+      .hero-slide:nth-child(2) {
+        background-image: url("image/slide-2.jpg");
+      }
+      .hero-slide:nth-child(3) {
+        background-image: url("image/slide-3.jpg");
+      }
+      .hero-slide:nth-child(4) {
+        background-image: url("image/slide-4.webp");
+      }
+      .hero-slide:nth-child(5) {
+        background-image: url("image/slide-5.jpg");
+      }
+      .hero-slide:nth-child(6) {
+        background-image: url("image/slide-6.jpeg");
+      }
+
+      /* Radial glow */
+      .hero-glow {
         position: absolute;
         top: -200px;
         left: 50%;
@@ -112,11 +158,104 @@
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(123, 47, 255, 0.18) 0%,
+          rgba(47, 139, 255, 0.15) 0%,
           transparent 70%
         );
+        z-index: 2;
         pointer-events: none;
       }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* ── SLIDER CONTROLS ── */
+      .slider-dots {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .slider-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.25s, transform 0.25s;
+      }
+      .slider-dot.active {
+        background: var(--blue);
+        transform: scale(1.35);
+      }
+
+      .slider-playpause {
+        position: absolute;
+        bottom: 18px;
+        right: 28px;
+        z-index: 4;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(10, 10, 18, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        backdrop-filter: blur(6px);
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .slider-playpause:hover {
+        background: rgba(47, 139, 255, 0.5);
+        border-color: var(--blue);
+      }
+
+      .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(10, 10, 18, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        backdrop-filter: blur(6px);
+        transition: background 0.2s, border-color 0.2s;
+        padding: 0;
+      }
+      .slider-arrow:hover {
+        background: rgba(47, 139, 255, 0.5);
+        border-color: var(--blue);
+      }
+      .slider-arrow.prev {
+        left: 20px;
+      }
+      .slider-arrow.next {
+        right: 20px;
+      }
+
+      /* ── Hero text (STILL PRESERVED AS REQUESTED) ── */
       .hero-badge {
         display: inline-flex;
         align-items: center;
@@ -167,6 +306,8 @@
         max-width: 520px;
         margin-bottom: 40px;
       }
+
+      /* ── DARK CLEAN THEME HERO BUTTONS (NO OUTLINES) ── */
       .hero-btns {
         display: flex;
         gap: 16px;
@@ -174,51 +315,78 @@
         justify-content: center;
       }
       .btn-primary {
-        background: var(--grad);
-        color: white;
+        background: rgba(
+          13,
+          13,
+          23,
+          0.9
+        ); /* Solid clean dark background layer */
+        color: var(--white);
+        border: none; /* Outlines completely removed */
         padding: 14px 28px;
         border-radius: 10px;
         text-decoration: none;
         font-weight: 700;
         font-size: 1rem;
-        transition: opacity 0.2s, transform 0.2s;
+        backdrop-filter: blur(12px);
+        transition: background 0.2s, transform 0.2s;
       }
       .btn-primary:hover {
-        opacity: 0.9;
+        background: rgba(
+          26,
+          26,
+          46,
+          0.95
+        ); /* Slight elevation change on hover */
         transform: translateY(-2px);
       }
       .btn-ghost {
-        background: transparent;
+        background: rgba(
+          13,
+          13,
+          23,
+          0.7
+        ); /* Matching clean translucent dark look */
         color: var(--text);
-        border: 1px solid var(--border);
+        border: none; /* Outlines completely removed */
         padding: 14px 28px;
         border-radius: 10px;
         text-decoration: none;
         font-weight: 600;
         font-size: 1rem;
-        transition: border-color 0.2s;
+        backdrop-filter: blur(12px);
+        transition: background 0.2s, color 0.2s, transform 0.2s;
       }
       .btn-ghost:hover {
-        border-color: var(--purple);
+        background: rgba(
+          26,
+          26,
+          46,
+          0.85
+        ); /* Slight illumination shift on hover */
+        color: var(--white);
+        transform: translateY(-2px);
       }
+
       .hero-platforms {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 56px;
+        margin-top: 32px;
       }
       .platform-pill {
-        background: var(--card);
+        background: rgba(10, 10, 18, 0.85);
         border: 1px solid var(--border);
         padding: 8px 18px;
         border-radius: 100px;
         font-size: 0.85rem;
         font-weight: 600;
-        color: var(--muted);
+        color: var(--text);
+        backdrop-filter: blur(6px);
       }
 
-      /* SECTIONS */
+      /* ── SECTIONS ── */
       section {
         padding: 90px 24px;
       }
@@ -246,7 +414,7 @@
         max-width: 520px;
       }
 
-      /* HOW IT WORKS */
+      /* ── HOW IT WORKS ── */
       .steps {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -290,7 +458,7 @@
         line-height: 1.6;
       }
 
-      /* SERVICES */
+      /* ── SERVICES ── */
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -330,6 +498,7 @@
         background: rgba(0, 232, 122, 0.15);
         color: var(--green);
       }
+
       .service-card h3 {
         font-size: 1.15rem;
         font-weight: 700;
@@ -360,7 +529,7 @@
         flex-shrink: 0;
       }
 
-      /* DEALS */
+      /* ── DEALS ── */
       .sales-bg {
         background: var(--card);
         border-top: 1px solid var(--border);
@@ -412,7 +581,7 @@
         background: linear-gradient(135deg, #1a0a2a, #0a1a2a);
         border: 1px solid #aa2fff44;
       }
-      /* Auto-active state: applied by JS to whichever card is currently live */
+
       .sale-card.is-live {
         transform: translateY(-4px);
         box-shadow: 0 0 0 1px rgba(0, 232, 122, 0.4),
@@ -462,7 +631,7 @@
         color: var(--green);
       }
 
-      /* ORDER SECTION */
+      /* ── ORDER ── */
       .order-section {
         background: var(--dark);
       }
@@ -509,7 +678,6 @@
         color: var(--muted);
         font-size: 0.85rem;
       }
-
       .wa-order-btn {
         display: inline-flex;
         align-items: center;
@@ -527,13 +695,6 @@
       .wa-order-btn:hover {
         opacity: 0.88;
       }
-      .or-divider {
-        font-size: 0.82rem;
-        color: var(--muted);
-        margin-bottom: 24px;
-      }
-
-      /* IFRAME FORM */
       .order-form-wrap {
         display: flex;
         flex-direction: column;
@@ -551,7 +712,7 @@
         filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.95);
       }
 
-      /* TESTIMONIALS */
+      /* ── TESTIMONIALS ── */
       .testi-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -602,7 +763,7 @@
         color: var(--muted);
       }
 
-      /* FOOTER */
+      /* ── FOOTER ── */
       footer {
         background: var(--card);
         border-top: 1px solid var(--border);
@@ -679,31 +840,7 @@
         font-size: 0.88rem;
       }
 
-      /* TICKER */
-      .ticker-wrap {
-        background: var(--purple);
-        padding: 10px 0;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      .ticker-track {
-        display: inline-block;
-        animation: ticker 30s linear infinite;
-      }
-      .ticker-track span {
-        margin: 0 32px;
-        font-size: 0.82rem;
-        font-weight: 600;
-      }
-      @keyframes ticker {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
+      /* ── RESPONSIVE ── */
       @media (max-width: 768px) {
         .nav-links {
           display: none;
@@ -725,6 +862,15 @@
         .gform-mask iframe {
           height: 1310px;
         }
+        .slider-arrow {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-slide {
+          transition: none;
+        }
       }
     </style>
   </head>
@@ -741,47 +887,101 @@
       <a href="#order" class="nav-cta">Order Now</a>
     </nav>
 
-    <!-- TICKER -->
-    <div class="ticker-wrap" style="margin-top: 64px" id="ticker-wrap">
-      <div class="ticker-track" id="ticker-track">
-        <span id="ticker-live-1"
-          >GG Summer Drop is LIVE — FIFA 25 from N18,000</span
-        >
-        <span>PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
-        <span>Instant delivery on digital keys</span>
-        <span>Trusted by Nigerian gamers — Pay in Naira</span>
-        <span id="ticker-live-2"
-          >GG Summer Drop is LIVE — FIFA 25 from N18,000</span
-        >
-        <span>PSN Top-Ups · Steam Wallet · Xbox Credits · Robux · UC</span>
-        <span>Instant delivery on digital keys</span>
-        <span>Trusted by Nigerian gamers — Pay in Naira</span>
-      </div>
-    </div>
-
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-badge" id="hero-badge">
-        <span class="badge-dot"></span>
-        <span id="hero-badge-text">GG Summer Drop — Now Live</span>
+    <section class="hero" id="hero-section">
+      <!-- Slideshow layers -->
+      <div class="hero-slides" id="heroSlides" aria-hidden="true">
+        <div class="hero-slide active"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
       </div>
-      <h1>Pay Local.<br /><span>Play Global.</span></h1>
-      <p>
-        Nigerian gamers deserve access to every game, every platform, every
-        sale. GGBridge makes it happen — in naira.
-      </p>
-      <div class="hero-btns">
-        <a href="#order" class="btn-primary">Place an Order</a>
-        <a href="#deals" class="btn-ghost">See Current Deals</a>
+
+      <!-- Blue radial glow -->
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <!-- Hero text content -->
+      <div class="hero-content">
+        <!-- Commented out text blocks cleanly preserved here -->
+        <!-- <div class="hero-badge" id="hero-badge">
+          <span class="badge-dot"></span>
+          <span id="hero-badge-text">GG Summer Drop — Now Live</span>
+        </div>
+        <h1>Pay Local.<br /><span>Play Global.</span></h1>
+        <p>
+          Nigerian gamers deserve access to every game, every platform, every
+          sale. GGBridge makes it happen — in naira.
+        </p> -->
+
+        <div class="hero-btns">
+          <a href="#order" class="btn-primary">Place an Order</a>
+          <a href="#deals" class="btn-ghost">See Current Deals</a>
+        </div>
+
+        <!-- Platform pills commented out for now as requested -->
+        <!-- 
+        <div class="hero-platforms">
+          <div class="platform-pill">PlayStation</div>
+          <div class="platform-pill">Xbox</div>
+          <div class="platform-pill">Steam</div>
+          <div class="platform-pill">Mobile Games</div>
+          <div class="platform-pill">Nintendo</div>
+          <div class="platform-pill">Epic Games</div>
+        </div>
+        -->
       </div>
-      <div class="hero-platforms">
-        <div class="platform-pill">PlayStation</div>
-        <div class="platform-pill">Xbox</div>
-        <div class="platform-pill">Steam</div>
-        <div class="platform-pill">Mobile Games</div>
-        <div class="platform-pill">Nintendo</div>
-        <div class="platform-pill">Epic Games</div>
-      </div>
+
+      <!-- Prev / Next arrows -->
+      <button
+        class="slider-arrow prev"
+        id="slidePrev"
+        aria-label="Previous slide"
+      >
+        &#8592;
+      </button>
+      <button class="slider-arrow next" id="slideNext" aria-label="Next slide">
+        &#8594;
+      </button>
+
+      <!-- Dot indicators -->
+      <div
+        class="slider-dots"
+        id="sliderDots"
+        role="tablist"
+        aria-label="Slide indicators"
+      ></div>
+
+      <!-- Play / Pause -->
+      <button
+        class="slider-playpause"
+        id="slidePlayPause"
+        aria-label="Pause slideshow"
+      >
+        <svg
+          id="iconPause"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="2" y="1" width="4" height="12" rx="1" fill="white" />
+          <rect x="8" y="1" width="4" height="12" rx="1" fill="white" />
+        </svg>
+        <svg
+          id="iconPlay"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style="display: none"
+        >
+          <polygon points="2,1 13,7 2,13" fill="white" />
+        </svg>
+      </button>
     </section>
 
     <!-- HOW IT WORKS -->
@@ -839,14 +1039,14 @@
         <div class="services-grid">
           <div class="service-card">
             <span class="service-tag tag-proxy">Proxy Purchase</span>
-            <h3>Platform Top-Ups & Purchases</h3>
+            <h3>Platform Top-Ups &amp; Purchases</h3>
             <p>
               We buy on your behalf on any international platform. You pay us in
               naira, we handle the rest.
             </p>
             <ul class="service-list">
-              <li>PSN Wallet & PS Plus</li>
-              <li>Xbox Credits & Game Pass</li>
+              <li>PSN Wallet &amp; PS Plus</li>
+              <li>Xbox Credits &amp; Game Pass</li>
               <li>Steam Wallet Funds</li>
               <li>Epic Games / V-Bucks</li>
               <li>Nintendo eShop Credits</li>
@@ -896,7 +1096,6 @@
           right now lights up automatically.
         </p>
         <div class="sales-grid">
-          <!-- data-start / data-end use MM-DD format. data-name is used in the hero badge + ticker when this sale is live -->
           <div
             class="sale-card sale-summer"
             data-sale="summer"
@@ -909,8 +1108,8 @@
             <div class="sale-name">GG Summer Drop</div>
             <div class="sale-period">June – July</div>
             <div class="sale-desc">
-              Our biggest annual event. Massive discounts on Steam, PSN & Xbox
-              aligned with global summer sales.
+              Our biggest annual event. Massive discounts on Steam, PSN &amp;
+              Xbox aligned with global summer sales.
             </div>
           </div>
           <div
@@ -1050,8 +1249,8 @@
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>WhatsApp Confirmation</strong
-                  ><span
+                  <strong>WhatsApp Confirmation</strong>
+                  <span
                     >Every order confirmed directly on WhatsApp. No bots.</span
                   >
                 </div>
@@ -1059,15 +1258,15 @@
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>Same-Day Fulfillment</strong
-                  ><span>Most orders done within hours of payment.</span>
+                  <strong>Same-Day Fulfillment</strong>
+                  <span>Most orders done within hours of payment.</span>
                 </div>
               </div>
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>100% Naira Payments</strong
-                  ><span
+                  <strong>100% Naira Payments</strong>
+                  <span
                     >Bank transfer or Paystack. No foreign card needed.</span
                   >
                 </div>
@@ -1075,16 +1274,14 @@
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>Proof Sent Always</strong
-                  ><span
+                  <strong>Proof Sent Always</strong>
+                  <span
                     >Screenshot or key sent immediately after fulfillment.</span
                   >
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- IFRAME FORM -->
           <div class="order-form-wrap">
             <div class="gform-mask">
               <iframe
@@ -1202,16 +1399,99 @@
     </footer>
 
     <script>
+      /* ── HERO CAROUSEL ── */
       (function () {
-        // Returns true if today's MM-DD falls within start..end (handles ranges that wrap across Dec 31 -> Jan 1, e.g. winter sale)
-        function isDateInRange(today, start, end) {
-          if (start <= end) {
-            return today >= start && today <= end;
-          }
-          // wraps the new year (e.g. 12-01 -> 01-15)
-          return today >= start || today <= end;
+        var TOTAL = 6;
+        var INTERVAL = 5000;
+        var slides = document.querySelectorAll(".hero-slide");
+        var dotsWrap = document.getElementById("sliderDots");
+        var btnPrev = document.getElementById("slidePrev");
+        var btnNext = document.getElementById("slideNext");
+        var btnPP = document.getElementById("slidePlayPause");
+        var iconPause = document.getElementById("iconPause");
+        var iconPlay = document.getElementById("iconPlay");
+        var heroSec = document.getElementById("hero-section");
+
+        var current = 0;
+        var playing = true;
+        var timer = null;
+        var dots = [];
+
+        for (var i = 0; i < TOTAL; i++) {
+          var d = document.createElement("button");
+          d.className = "slider-dot" + (i === 0 ? " active" : "");
+          d.setAttribute("aria-label", "Go to slide " + (i + 1));
+          d.setAttribute("role", "tab");
+          d.dataset.idx = i;
+          dotsWrap.appendChild(d);
+          dots.push(d);
         }
 
+        function goTo(n) {
+          slides[current].classList.remove("active");
+          dots[current].classList.remove("active");
+          current = (n + TOTAL) % TOTAL;
+          slides[current].classList.add("active");
+          dots[current].classList.add("active");
+        }
+
+        function startTimer() {
+          clearInterval(timer);
+          timer = setInterval(function () {
+            goTo(current + 1);
+          }, INTERVAL);
+        }
+        function stopTimer() {
+          clearInterval(timer);
+        }
+
+        btnNext.addEventListener("click", function () {
+          goTo(current + 1);
+          if (playing) startTimer();
+        });
+        btnPrev.addEventListener("click", function () {
+          goTo(current - 1);
+          if (playing) startTimer();
+        });
+
+        dotsWrap.addEventListener("click", function (e) {
+          var btn = e.target.closest(".slider-dot");
+          if (!btn) return;
+          goTo(parseInt(btn.dataset.idx, 10));
+          if (playing) startTimer();
+        });
+
+        btnPP.addEventListener("click", function () {
+          playing = !playing;
+          if (playing) {
+            startTimer();
+            iconPause.style.display = "";
+            iconPlay.style.display = "none";
+            btnPP.setAttribute("aria-label", "Pause slideshow");
+          } else {
+            stopTimer();
+            iconPause.style.display = "none";
+            iconPlay.style.display = "";
+            btnPP.setAttribute("aria-label", "Play slideshow");
+          }
+        });
+
+        heroSec.addEventListener("mouseenter", function () {
+          if (playing) stopTimer();
+        });
+        heroSec.addEventListener("mouseleave", function () {
+          if (playing) startTimer();
+        });
+
+        startTimer();
+      })();
+
+      /* ── ACTIVE SALE DETECTION ── */
+      (function () {
+        function isDateInRange(today, start, end) {
+          if (start <= end) return today >= start && today <= end;
+          return today >= start || today <= end;
+        }
         function pad(n) {
           return String(n).padStart(2, "0");
         }
@@ -1219,7 +1499,6 @@
         function refreshActiveSale() {
           var now = new Date();
           var todayKey = pad(now.getMonth() + 1) + "-" + pad(now.getDate());
-
           var cards = document.querySelectorAll(".sale-card[data-sale]");
           var liveCard = null;
 
@@ -1228,7 +1507,6 @@
             var end = card.getAttribute("data-end");
             var badge = card.querySelector("[data-badge]");
             var periodLabel = card.querySelector(".sale-period").textContent;
-
             var isLive = isDateInRange(todayKey, start, end);
 
             card.classList.toggle("is-live", isLive);
@@ -1243,41 +1521,12 @@
               }
             }
 
-            if (isLive && !liveCard) {
-              liveCard = card; // first match wins if ranges ever overlap
-            }
+            if (isLive && !liveCard) liveCard = card;
           });
-
-          // Update hero badge + ticker to reflect whichever sale is live (or fall back to a neutral message)
-          var heroBadgeText = document.getElementById("hero-badge-text");
-          var ticker1 = document.getElementById("ticker-live-1");
-          var ticker2 = document.getElementById("ticker-live-2");
-
-          if (liveCard) {
-            var saleName = liveCard.getAttribute("data-name");
-            if (heroBadgeText)
-              heroBadgeText.textContent = saleName + " — Now Live";
-            if (ticker1)
-              ticker1.textContent =
-                saleName + " is LIVE — check our current deals";
-            if (ticker2)
-              ticker2.textContent =
-                saleName + " is LIVE — check our current deals";
-          } else {
-            if (heroBadgeText)
-              heroBadgeText.textContent = "New Deals Dropping Soon";
-            if (ticker1)
-              ticker1.textContent = "Check back soon for our next sale event";
-            if (ticker2)
-              ticker2.textContent = "Check back soon for our next sale event";
-          }
         }
 
-        // Run on load
         document.addEventListener("DOMContentLoaded", refreshActiveSale);
 
-        // Re-check at the next local midnight, then every 24h after that,
-        // so the banner flips over automatically without anyone refreshing the page.
         function scheduleMidnightRefresh() {
           var now = new Date();
           var nextMidnight = new Date(
@@ -1288,11 +1537,10 @@
             5,
             0
           );
-          var msUntilMidnight = nextMidnight - now;
           setTimeout(function () {
             refreshActiveSale();
             setInterval(refreshActiveSale, 24 * 60 * 60 * 1000);
-          }, msUntilMidnight);
+          }, nextMidnight - now);
         }
         scheduleMidnightRefresh();
       })();
