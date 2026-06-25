@@ -1287,42 +1287,27 @@
         const formURL =
           "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeXh_Uli88-4A8DSgGFQTy8b1fRnoR5yCJqKOVefoyuSBL-AA/formResponse";
 
-        const ENTRY_NAME = "entry.1827855002";
-        const ENTRY_PHONE = "entry.1347435463";
-        const ENTRY_SERVICE = "entry.439780086";
-        const ENTRY_DETAILS = "entry.1482564294";
+        const body = new URLSearchParams();
+        body.append("entry.1827855002", name);
+        body.append("entry.1347435463", phone);
+        body.append("entry.439780086", service);
+        body.append("entry.1482564294", details);
 
-        const params = new URLSearchParams();
-        params.append(ENTRY_NAME, name);
-        params.append(ENTRY_PHONE, phone);
-        params.append(ENTRY_SERVICE, service);
-        params.append(ENTRY_DETAILS, details);
-
-        const iframe = document.createElement("iframe");
-        iframe.name = "gg-submit-frame";
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
-
-        const hiddenForm = document.createElement("form");
-        hiddenForm.method = "POST";
-        hiddenForm.action = formURL;
-        hiddenForm.target = "gg-submit-frame";
-
-        params.forEach((value, key) => {
-          const input = document.createElement("input");
-          input.type = "hidden";
-          input.name = key;
-          input.value = value;
-          hiddenForm.appendChild(input);
-        });
-
-        document.body.appendChild(hiddenForm);
-        hiddenForm.submit();
-
-        setTimeout(() => {
-          document.getElementById("formWrap").style.display = "none";
-          document.getElementById("successMsg").style.display = "block";
-        }, 1200);
+        fetch(formURL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString(),
+        })
+          .then(() => {
+            document.getElementById("formWrap").style.display = "none";
+            document.getElementById("successMsg").style.display = "block";
+          })
+          .catch(() => {
+            // no-cors will never actually throw, but just in case
+            document.getElementById("formWrap").style.display = "none";
+            document.getElementById("successMsg").style.display = "block";
+          });
       }
     </script>
   </body>
