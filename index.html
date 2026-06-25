@@ -360,7 +360,7 @@
         flex-shrink: 0;
       }
 
-      /* DEALS / SALES */
+      /* DEALS */
       .sales-bg {
         background: var(--card);
         border-top: 1px solid var(--border);
@@ -453,7 +453,8 @@
         background: rgba(0, 232, 122, 0.2);
         color: var(--green);
       }
-      /* ORDER FORM */
+
+      /* ORDER SECTION */
       .order-section {
         background: var(--dark);
       }
@@ -500,110 +501,57 @@
         color: var(--muted);
         font-size: 0.85rem;
       }
-      .order-form {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 32px;
-      }
-      .form-title {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: 1.2rem;
-        margin-bottom: 24px;
-      }
-      .form-group {
-        margin-bottom: 18px;
-      }
-      .form-group label {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--muted);
-      }
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        background: var(--dark);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 12px 16px;
-        color: var(--text);
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 0.95rem;
-        outline: none;
-        transition: border-color 0.2s;
-      }
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        border-color: var(--purple);
-      }
-      .form-group select option {
-        background: var(--card);
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 90px;
-      }
-      .form-submit {
-        width: 100%;
-        background: var(--grad);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 14px;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: opacity 0.2s;
-      }
-      .form-submit:hover {
-        opacity: 0.9;
-      }
-      .form-submit:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-      .form-note {
-        text-align: center;
-        font-size: 0.8rem;
-        color: var(--muted);
-        margin-top: 12px;
-      }
-      .form-note a {
-        color: var(--green);
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .form-success {
-        display: none;
-        text-align: center;
-        padding: 32px 16px;
-      }
-      .form-success h3 {
-        font-family: "Syne", sans-serif;
-        font-size: 1.3rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-      }
-      .form-success p {
-        color: var(--muted);
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-      }
-      .form-success a {
+
+      .wa-order-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         background: #25d366;
         color: white;
-        padding: 12px 24px;
+        padding: 12px 22px;
         border-radius: 10px;
         text-decoration: none;
         font-weight: 700;
         font-size: 0.95rem;
-        display: inline-block;
+        margin-bottom: 12px;
+        transition: opacity 0.2s;
+      }
+      .wa-order-btn:hover {
+        opacity: 0.88;
+      }
+      .or-divider {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+
+      /* IFRAME FORM */
+      .order-form-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+      .gform-mask {
+        position: relative;
+        height: 650px;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .gform-mask-scroll {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+      .gform-mask iframe {
+        width: 100%;
+        height: 1700px;
+        border: none;
+        display: block;
+        filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.95);
       }
 
       /* TESTIMONIALS */
@@ -734,7 +682,7 @@
         font-size: 0.88rem;
       }
 
-      /* DEAL TICKER */
+      /* TICKER */
       .ticker-wrap {
         background: var(--purple);
         padding: 10px 0;
@@ -773,6 +721,12 @@
         .footer-bottom {
           flex-direction: column;
           text-align: center;
+        }
+        .gform-mask {
+          height: 600px;
+        }
+        .gform-mask iframe {
+          height: 1750px;
         }
       }
     </style>
@@ -941,8 +895,8 @@
         </p>
         <div class="sales-grid">
           <div class="sale-card sale-summer">
-            <span class="sale-badge active">Live Now</span>
-            <span class="sale-icon">SUMMER</span>
+            <span class="sale-badge active">Live Now</span
+            ><span class="sale-icon">SUMMER</span>
             <div class="sale-name">GG Summer Drop</div>
             <div class="sale-period">June – July</div>
             <div class="sale-desc">
@@ -951,8 +905,8 @@
             </div>
           </div>
           <div class="sale-card sale-winter">
-            <span class="sale-badge">December</span>
-            <span class="sale-icon">WINTER</span>
+            <span class="sale-badge">December</span
+            ><span class="sale-icon">WINTER</span>
             <div class="sale-name">Freeze Frame Sale</div>
             <div class="sale-period">December – January</div>
             <div class="sale-desc">
@@ -961,8 +915,8 @@
             </div>
           </div>
           <div class="sale-card sale-black">
-            <span class="sale-badge">November</span>
-            <span class="sale-icon">BLACK</span>
+            <span class="sale-badge">November</span
+            ><span class="sale-icon">BLACK</span>
             <div class="sale-name">The Black Cartridge</div>
             <div class="sale-period">Black Friday Week</div>
             <div class="sale-desc">
@@ -971,8 +925,8 @@
             </div>
           </div>
           <div class="sale-card sale-spring">
-            <span class="sale-badge">March</span>
-            <span class="sale-icon">SPRING</span>
+            <span class="sale-badge">March</span
+            ><span class="sale-icon">SPRING</span>
             <div class="sale-name">Level Up Season</div>
             <div class="sale-period">March – April</div>
             <div class="sale-desc">
@@ -981,8 +935,8 @@
             </div>
           </div>
           <div class="sale-card sale-halloween">
-            <span class="sale-badge">October</span>
-            <span class="sale-icon">NIGHT</span>
+            <span class="sale-badge">October</span
+            ><span class="sale-icon">NIGHT</span>
             <div class="sale-name">Respawn Night</div>
             <div class="sale-period">Halloween Week</div>
             <div class="sale-desc">
@@ -991,8 +945,8 @@
             </div>
           </div>
           <div class="sale-card sale-back">
-            <span class="sale-badge">August</span>
-            <span class="sale-icon">NEW+</span>
+            <span class="sale-badge">August</span
+            ><span class="sale-icon">NEW+</span>
             <div class="sale-name">New Game+ Sale</div>
             <div class="sale-period">August – September</div>
             <div class="sale-desc">
@@ -1001,8 +955,8 @@
             </div>
           </div>
           <div class="sale-card sale-val">
-            <span class="sale-badge">February</span>
-            <span class="sale-icon">P2</span>
+            <span class="sale-badge">February</span
+            ><span class="sale-icon">P2</span>
             <div class="sale-name">2-Player Deal</div>
             <div class="sale-period">Valentine's Week</div>
             <div class="sale-desc">
@@ -1011,8 +965,8 @@
             </div>
           </div>
           <div class="sale-card sale-easter">
-            <span class="sale-badge">April</span>
-            <span class="sale-icon">+LIFE</span>
+            <span class="sale-badge">April</span
+            ><span class="sale-icon">+LIFE</span>
             <div class="sale-name">Extra Life Sale</div>
             <div class="sale-period">Easter Weekend</div>
             <div class="sale-desc">
@@ -1035,12 +989,19 @@
               Fill in your details and we'll reach out on WhatsApp with your
               price and payment details. Most orders completed same day.
             </p>
+            <a
+              href="https://wa.me/2347077599508?text=Hey%20GGBridge,%20my%20name%20is%20______.%20I%20am%20interested%20in%20______."
+              target="_blank"
+              class="wa-order-btn"
+              >Message us on WhatsApp</a
+            >
+            <p class="or-divider">or use the form below</p>
             <div class="trust-items">
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>WhatsApp Confirmation</strong>
-                  <span
+                  <strong>WhatsApp Confirmation</strong
+                  ><span
                     >Every order confirmed directly on WhatsApp. No bots.</span
                   >
                 </div>
@@ -1048,15 +1009,15 @@
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>Same-Day Fulfillment</strong>
-                  <span>Most orders done within hours of payment.</span>
+                  <strong>Same-Day Fulfillment</strong
+                  ><span>Most orders done within hours of payment.</span>
                 </div>
               </div>
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>100% Naira Payments</strong>
-                  <span
+                  <strong>100% Naira Payments</strong
+                  ><span
                     >Bank transfer or Paystack. No foreign card needed.</span
                   >
                 </div>
@@ -1064,103 +1025,29 @@
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>Proof Sent Always</strong>
-                  <span
+                  <strong>Proof Sent Always</strong
+                  ><span
                     >Screenshot or key sent immediately after fulfillment.</span
                   >
                 </div>
               </div>
             </div>
           </div>
-          <div class="order-form">
-            <div id="formWrap">
-              <div class="form-title">New Order Request</div>
 
-              <!--
-            GOOGLE FORM SETUP INSTRUCTIONS:
-            1. Go to forms.google.com and create a new form with these fields:
-               - Short answer: "Your Name"
-               - Short answer: "WhatsApp Number"
-               - Dropdown: "Service Type"
-               - Paragraph: "Order Details"
-            2. Click the 3-dot menu > Get pre-filled link
-            3. Fill in dummy values, click Get Link, copy the URL
-            4. From that URL extract the entry IDs (entry.XXXXXXXXX) for each field
-            5. Replace the action URL below with your form's action URL:
-               Change: https://docs.google.com/forms/d/YOUR_FORM_ID/formResponse
-            6. Replace each entry.XXXXXXXXX with your actual entry IDs
-          -->
-              <div class="form-group">
-                <label>Your Name</label>
-                <input
-                  type="text"
-                  id="f-name"
-                  placeholder="e.g. Chukwuemeka"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label>WhatsApp Number</label>
-                <input
-                  type="tel"
-                  id="f-phone"
-                  placeholder="+234 800 000 0000"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label>Service Type</label>
-                <select id="f-service" required>
-                  <option value="">Select a service...</option>
-                  <option>PSN — Top-Up or Game Purchase</option>
-                  <option>Xbox — Credits or Game Pass</option>
-                  <option>Steam — Wallet or Game Key</option>
-                  <option>Mobile Legends — Diamonds</option>
-                  <option>PUBG Mobile — UC</option>
-                  <option>Free Fire — Diamonds</option>
-                  <option>Roblox — Robux</option>
-                  <option>COD Mobile — Points</option>
-                  <option>Nintendo eShop</option>
-                  <option>Epic Games / V-Bucks</option>
-                  <option>Other — I'll explain below</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>What exactly do you need?</label>
-                <textarea
-                  id="f-details"
-                  placeholder="e.g. FIFA 25 on Steam, or $20 PSN top-up, or 3000 Diamonds — ML account: example@email.com"
-                  required
-                ></textarea>
-              </div>
-              <button
-                class="form-submit"
-                id="submitBtn"
-                onclick="submitToGoogleForm(event)"
-              >
-                Send Order Request
-              </button>
-              <p class="form-note">
-                Or message us directly —
-                <a
-                  href="https://wa.me/2347077599508?text=Hey%20GGBridge,%20my%20name%20is%20______.%20I%20am%20interested%20in%20______."
-                  target="_blank"
-                  >chat on WhatsApp</a
+          <!-- IFRAME FORM -->
+          <div class="order-form-wrap">
+            <div class="gform-mask">
+              <div class="gform-mask-scroll">
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSeXh_Uli88-4A8DSgGFQTy8b1fRnoR5yCJqKOVefoyuSBL-AA/viewform?embedded=true"
+                  frameborder="0"
+                  marginheight="0"
+                  marginwidth="0"
+                  scrolling="no"
+                  title="GGBridge Order Form"
+                  >Loading…</iframe
                 >
-              </p>
-            </div>
-
-            <div class="form-success" id="successMsg">
-              <h3>Order Received</h3>
-              <p>
-                We have your request and will reach out on WhatsApp shortly to
-                confirm your price and payment details.
-              </p>
-              <a
-                href="https://wa.me/2347077599508?text=Hey%20GGBridge,%20my%20name%20is%20______.%20I%20am%20interested%20in%20______."
-                target="_blank"
-                >Message us on WhatsApp</a
-              >
+              </div>
             </div>
           </div>
         </div>
@@ -1265,50 +1152,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      function submitToGoogleForm(e) {
-        e.preventDefault();
-
-        const name = document.getElementById("f-name").value.trim();
-        const phone = document.getElementById("f-phone").value.trim();
-        const service = document.getElementById("f-service").value;
-        const details = document.getElementById("f-details").value.trim();
-
-        if (!name || !phone || !service || !details) {
-          alert("Please fill in all fields before submitting.");
-          return;
-        }
-
-        const btn = document.getElementById("submitBtn");
-        btn.textContent = "Sending...";
-        btn.disabled = true;
-
-        const formURL =
-          "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeXh_Uli88-4A8DSgGFQTy8b1fRnoR5yCJqKOVefoyuSBL-AA/formResponse";
-
-        const body = new URLSearchParams();
-        body.append("entry.1827855002", name);
-        body.append("entry.1347435463", phone);
-        body.append("entry.439780086", service);
-        body.append("entry.1482564294", details);
-
-        fetch(formURL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: body.toString(),
-        })
-          .then(() => {
-            document.getElementById("formWrap").style.display = "none";
-            document.getElementById("successMsg").style.display = "block";
-          })
-          .catch(() => {
-            // no-cors will never actually throw, but just in case
-            document.getElementById("formWrap").style.display = "none";
-            document.getElementById("successMsg").style.display = "block";
-          });
-      }
-    </script>
   </body>
 </html>
