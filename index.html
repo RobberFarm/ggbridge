@@ -91,7 +91,7 @@
 
       /* ── HERO ── */
       .hero {
-        min-height: calc(100vh - 64px);
+        min-height: 100vh;
         margin-top: 64px;
         display: flex;
         flex-direction: column;
@@ -99,13 +99,6 @@
         text-align: center;
         position: relative;
         overflow: hidden;
-
-        /* ───────────────────────────────────────────────────────────────
-           REVERT INSTRUCTIONS: HOW THE BUTTONS WERE PUSHED DOWN
-           If you want to bring the buttons back to the absolute center:
-           1. Change 'justify-content: flex-end;' to 'justify-content: center;'
-           2. Change 'padding: 60px 24px 95px;' to 'padding: 120px 24px 80px;'
-           ─────────────────────────────────────────────────────────────── */
         justify-content: flex-end;
         padding: 60px 24px 95px;
       }
@@ -122,6 +115,7 @@
         background-size: cover;
         background-position: center;
         opacity: 0;
+        filter: blur(5px);
         transition: opacity 1s ease-in-out;
       }
       .hero-slide.active {
@@ -144,7 +138,7 @@
         background-image: url("image/slide-5.jpg");
       }
       .hero-slide:nth-child(6) {
-        background-image: url("image/slide-6.jpeg");
+        background-image: url("image/slide-6.jpg");
       }
 
       /* Radial glow */
@@ -314,59 +308,38 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      .btn-primary {
-        background: rgba(
-          13,
-          13,
-          23,
-          0.9
-        ); /* Solid clean dark background layer */
-        color: var(--white);
-        border: none; /* Outlines completely removed */
-        padding: 14px 28px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 1rem;
-        backdrop-filter: blur(12px);
-        transition: background 0.2s, transform 0.2s;
-      }
-      .btn-primary:hover {
-        background: rgba(
-          26,
-          26,
-          46,
-          0.95
-        ); /* Slight elevation change on hover */
-        transform: translateY(-2px);
-      }
-      .btn-ghost {
-        background: rgba(
-          13,
-          13,
-          23,
-          0.7
-        ); /* Matching clean translucent dark look */
-        color: var(--text);
-        border: none; /* Outlines completely removed */
-        padding: 14px 28px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        backdrop-filter: blur(12px);
-        transition: background 0.2s, color 0.2s, transform 0.2s;
-      }
-      .btn-ghost:hover {
-        background: rgba(
-          26,
-          26,
-          46,
-          0.85
-        ); /* Slight illumination shift on hover */
-        color: var(--white);
-        transform: translateY(-2px);
-      }
+.btn-primary {
+  background: #ffffff;
+  color: #0a0a12;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.88);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.35);
+  color: black;  
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: white;
+  transform: translateY(-2px);
+}
 
       .hero-platforms {
         display: flex;
