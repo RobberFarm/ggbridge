@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GGBridge — Pay Local. Play Global.</title>
+    <title>GGBridge — Stack games, not bills.</title>
     <link rel="icon" type="image/png" href="image/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
@@ -29,9 +29,6 @@
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
       }
       body {
         background: var(--dark);
@@ -91,16 +88,15 @@
 
       /* ── HERO ── */
       .hero {
-        min-height: 100vh;
-        margin-top: 64px;
+        min-height: calc(100vh - 60px);
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-align: center;
         position: relative;
         overflow: hidden;
-        justify-content: flex-end;
-        padding: 60px 24px 95px;
+        margin-top: 75px;
       }
 
       /* ── SLIDER BACKGROUND ── */
@@ -115,38 +111,40 @@
         background-size: cover;
         background-position: center;
         opacity: 0;
-        filter: blur(5px);
+        filter: blur(3px);
         transition: opacity 1s ease-in-out;
       }
       .hero-slide.active {
         opacity: 1;
       }
 
-      .hero-slide:nth-child(1) {
-        background-image: url("image/slide-1.jpg");
-      }
-      .hero-slide:nth-child(2) {
-        background-image: url("image/slide-2.jpg");
-      }
-      .hero-slide:nth-child(3) {
-        background-image: url("image/slide-3.jpg");
-      }
-      .hero-slide:nth-child(4) {
-        background-image: url("image/slide-4.webp");
-      }
-      .hero-slide:nth-child(5) {
-        background-image: url("image/slide-5.jpg");
-      }
-      .hero-slide:nth-child(6) {
-        background-image: url("image/slide-6.jpg");
+      .hero-slide:nth-child(1) { background-image: url("image/slide-1.jpg"); }
+      .hero-slide:nth-child(2) { background-image: url("image/slide-2.jpg"); }
+      .hero-slide:nth-child(3) { background-image: url("image/slide-3.jpg"); }
+      .hero-slide:nth-child(4) { background-image: url("image/slide-4.webp"); }
+      .hero-slide:nth-child(5) { background-image: url("image/slide-5.jpg"); }
+      .hero-slide:nth-child(6) { background-image: url("image/slide-6.jpg"); }
+
+      /* SOLID DARK COATED OVERLAY FOR MAXIMUM READABILITY */
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 10, 18, 0.55) 0%,
+          rgba(10, 10, 18, 0.85) 60%,
+          rgba(10, 10, 18, 1) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
       }
 
       /* Radial glow */
       .hero-glow {
         position: absolute;
-        top: -200px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         width: 800px;
         height: 800px;
         border-radius: 50%;
@@ -166,12 +164,13 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+        max-width: 900px;
       }
 
       /* ── SLIDER CONTROLS ── */
       .slider-dots {
         position: absolute;
-        bottom: 24px;
+        bottom: 32px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 4;
@@ -196,7 +195,7 @@
 
       .slider-playpause {
         position: absolute;
-        bottom: 18px;
+        bottom: 24px;
         right: 28px;
         z-index: 4;
         width: 38px;
@@ -242,28 +241,25 @@
         background: rgba(47, 139, 255, 0.5);
         border-color: var(--blue);
       }
-      .slider-arrow.prev {
-        left: 20px;
-      }
-      .slider-arrow.next {
-        right: 20px;
-      }
+      .slider-arrow.prev { left: 20px; }
+      .slider-arrow.next { right: 20px; }
 
-      /* ── Hero text (STILL PRESERVED AS REQUESTED) ── */
+      /* CLEAN CYAN/BLUE BADGE VARIANT */
       .hero-badge {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(123, 47, 255, 0.15);
-        border: 1px solid rgba(123, 47, 255, 0.4);
-        color: #b87eff;
+        background: rgba(47, 139, 255, 0.12);
+        border: 1px solid rgba(47, 139, 255, 0.4);
+        color: #9eccff;
         padding: 6px 16px;
         border-radius: 100px;
         font-size: 0.8rem;
         font-weight: 600;
-        margin-bottom: 28px;
+        margin-bottom: 24px;
         letter-spacing: 0.05em;
         text-transform: uppercase;
+        backdrop-filter: blur(4px);
       }
       .badge-dot {
         width: 6px;
@@ -273,21 +269,17 @@
         animation: pulse 2s infinite;
       }
       @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.4;
-        }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
       }
       .hero h1 {
         font-family: "Syne", sans-serif;
         font-size: clamp(2.8rem, 7vw, 5.5rem);
         font-weight: 800;
         line-height: 1.05;
-        margin-bottom: 24px;
-        max-width: 800px;
+        margin-bottom: 20px;
+        color: var(--white);
+        text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
       }
       .hero h1 span {
         background: var(--grad);
@@ -295,68 +287,52 @@
         -webkit-text-fill-color: transparent;
       }
       .hero p {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        color: var(--muted);
-        max-width: 520px;
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        color: #f0f0f5;
+        max-width: 580px;
         margin-bottom: 40px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        font-weight: 500;
       }
 
-      /* ── DARK CLEAN THEME HERO BUTTONS (NO OUTLINES) ── */
+      /* ── DARK CLEAN THEME HERO BUTTONS ── */
       .hero-btns {
         display: flex;
         gap: 16px;
         flex-wrap: wrap;
         justify-content: center;
       }
-.btn-primary {
-  background: #ffffff;
-  color: #0a0a12;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-primary:hover {
-  background: rgba(255, 255, 255, 0.88);
-  transform: translateY(-2px);
-}
-.btn-ghost {
-  background: rgba(255, 255, 255, 0.35);
-  color: black;  
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
-  padding: 14px 28px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  backdrop-filter: blur(6px);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-}
-.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.28);
-  border-color: white;
-  transform: translateY(-2px);
-}
-
-      .hero-platforms {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 32px;
+      .btn-primary {
+        background: #ffffff;
+        color: #0a0a12;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: background 0.2s, transform 0.2s;
       }
-      .platform-pill {
-        background: rgba(10, 10, 18, 0.85);
-        border: 1px solid var(--border);
-        padding: 8px 18px;
-        border-radius: 100px;
-        font-size: 0.85rem;
+      .btn-primary:hover {
+        background: rgba(255, 255, 255, 0.88);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;  
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        padding: 14px 28px;
+        border-radius: 10px;
+        text-decoration: none;
         font-weight: 600;
-        color: var(--text);
+        font-size: 1rem;
         backdrop-filter: blur(6px);
+        transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: white;
+        transform: translateY(-2px);
       }
 
       /* ── SECTIONS ── */
@@ -459,18 +435,9 @@
         border-radius: 6px;
         margin-bottom: 16px;
       }
-      .tag-proxy {
-        background: rgba(123, 47, 255, 0.15);
-        color: #b87eff;
-      }
-      .tag-keys {
-        background: rgba(47, 139, 255, 0.15);
-        color: #7ec4ff;
-      }
-      .tag-mobile {
-        background: rgba(0, 232, 122, 0.15);
-        color: var(--green);
-      }
+      .tag-proxy { background: rgba(123, 47, 255, 0.15); color: #b87eff; }
+      .tag-keys { background: rgba(47, 139, 255, 0.15); color: #7ec4ff; }
+      .tag-mobile { background: rgba(0, 232, 122, 0.15); color: var(--green); }
 
       .service-card h3 {
         font-size: 1.15rem;
@@ -519,46 +486,20 @@
         padding: 24px;
         position: relative;
         overflow: hidden;
-        transition: transform 0.25s ease, box-shadow 0.25s ease,
-          border-color 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       }
-      .sale-summer {
-        background: linear-gradient(135deg, #1a0a3e, #0a1a3e);
-        border: 1px solid #3a1aff44;
-      }
-      .sale-winter {
-        background: linear-gradient(135deg, #0a1a2e, #0a2a3e);
-        border: 1px solid #1a8aff44;
-      }
-      .sale-black {
-        background: linear-gradient(135deg, #1a0a0a, #2a1a0a);
-        border: 1px solid #ff6b2f44;
-      }
-      .sale-spring {
-        background: linear-gradient(135deg, #0a1a0a, #0a2a1a);
-        border: 1px solid #00e87a44;
-      }
-      .sale-halloween {
-        background: linear-gradient(135deg, #1a0a1a, #2a0a0a);
-        border: 1px solid #ff2f7b44;
-      }
-      .sale-back {
-        background: linear-gradient(135deg, #1a1a0a, #2a1a00);
-        border: 1px solid #ffaa2f44;
-      }
-      .sale-val {
-        background: linear-gradient(135deg, #1a0a0a, #2a0a1a);
-        border: 1px solid #ff2f5544;
-      }
-      .sale-easter {
-        background: linear-gradient(135deg, #1a0a2a, #0a1a2a);
-        border: 1px solid #aa2fff44;
-      }
+      .sale-summer { background: linear-gradient(135deg, #1a0a3e, #0a1a3e); border: 1px solid #3a1aff44; }
+      .sale-winter { background: linear-gradient(135deg, #0a1a2e, #0a2a3e); border: 1px solid #1a8aff44; }
+      .sale-black { background: linear-gradient(135deg, #1a0a0a, #2a1a0a); border: 1px solid #ff6b2f44; }
+      .sale-spring { background: linear-gradient(135deg, #0a1a0a, #0a2a1a); border: 1px solid #00e87a44; }
+      .sale-halloween { background: linear-gradient(135deg, #1a0a1a, #2a0a0a); border: 1px solid #ff2f7b44; }
+      .sale-back { background: linear-gradient(135deg, #1a1a0a, #2a1a00); border: 1px solid #ffaa2f44; }
+      .sale-val { background: linear-gradient(135deg, #1a0a0a, #2a0a1a); border: 1px solid #ff2f5544; }
+      .sale-easter { background: linear-gradient(135deg, #1a0a2a, #0a1a2a); border: 1px solid #aa2fff44; }
 
       .sale-card.is-live {
         transform: translateY(-4px);
-        box-shadow: 0 0 0 1px rgba(0, 232, 122, 0.4),
-          0 12px 32px rgba(0, 232, 122, 0.12);
+        box-shadow: 0 0 0 1px rgba(0, 232, 122, 0.4), 0 12px 32px rgba(0, 232, 122, 0.12);
       }
       .sale-icon {
         font-size: 1.5rem;
@@ -815,35 +756,17 @@
 
       /* ── RESPONSIVE ── */
       @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-        .order-wrap {
-          grid-template-columns: 1fr;
-        }
-        .footer-top {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-        .footer-bottom {
-          flex-direction: column;
-          text-align: center;
-        }
-        .gform-mask {
-          height: 1150px;
-        }
-        .gform-mask iframe {
-          height: 1310px;
-        }
-        .slider-arrow {
-          display: none;
-        }
+        .nav-links { display: none; }
+        .order-wrap { grid-template-columns: 1fr; }
+        .footer-top { grid-template-columns: 1fr; gap: 28px; }
+        .footer-bottom { flex-direction: column; text-align: center; }
+        .gform-mask { height: 1150px; }
+        .gform-mask iframe { height: 1310px; }
+        .slider-arrow { display: none; }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .hero-slide {
-          transition: none;
-        }
+        .hero-slide { transition: none; }
       }
     </style>
   </head>
@@ -872,86 +795,41 @@
         <div class="hero-slide"></div>
       </div>
 
+      <!-- Clean Overlay Contrast Layer -->
+      <div class="hero-overlay" aria-hidden="true"></div>
+
       <!-- Blue radial glow -->
       <div class="hero-glow" aria-hidden="true"></div>
 
       <!-- Hero text content -->
       <div class="hero-content">
-        <!-- Commented out text blocks cleanly preserved here -->
-        <!-- <div class="hero-badge" id="hero-badge">
+        <div class="hero-badge" id="hero-badge">
           <span class="badge-dot"></span>
-          <span id="hero-badge-text">GG Summer Drop — Now Live</span>
+          <span id="hero-badge-text">Checking live drops...</span>
         </div>
-        <h1>Pay Local.<br /><span>Play Global.</span></h1>
-        <p>
-          Nigerian gamers deserve access to every game, every platform, every
-          sale. GGBridge makes it happen — in naira.
-        </p> -->
+        <h1>Stack games.<br /><span>Not bills.</span></h1>
+        <p>The cheapest way to buy games</p>
 
         <div class="hero-btns">
           <a href="#order" class="btn-primary">Place an Order</a>
           <a href="#deals" class="btn-ghost">See Current Deals</a>
         </div>
-
-        <!-- Platform pills commented out for now as requested -->
-        <!-- 
-        <div class="hero-platforms">
-          <div class="platform-pill">PlayStation</div>
-          <div class="platform-pill">Xbox</div>
-          <div class="platform-pill">Steam</div>
-          <div class="platform-pill">Mobile Games</div>
-          <div class="platform-pill">Nintendo</div>
-          <div class="platform-pill">Epic Games</div>
-        </div>
-        -->
       </div>
 
       <!-- Prev / Next arrows -->
-      <button
-        class="slider-arrow prev"
-        id="slidePrev"
-        aria-label="Previous slide"
-      >
-        &#8592;
-      </button>
-      <button class="slider-arrow next" id="slideNext" aria-label="Next slide">
-        &#8594;
-      </button>
+      <button class="slider-arrow prev" id="slidePrev" aria-label="Previous slide">&#8592;</button>
+      <button class="slider-arrow next" id="slideNext" aria-label="Next slide">&#8594;</button>
 
       <!-- Dot indicators -->
-      <div
-        class="slider-dots"
-        id="sliderDots"
-        role="tablist"
-        aria-label="Slide indicators"
-      ></div>
+      <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Slide indicators"></div>
 
       <!-- Play / Pause -->
-      <button
-        class="slider-playpause"
-        id="slidePlayPause"
-        aria-label="Pause slideshow"
-      >
-        <svg
-          id="iconPause"
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+      <button class="slider-playpause" id="slidePlayPause" aria-label="Pause slideshow">
+        <svg id="iconPause" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="1" width="4" height="12" rx="1" fill="white" />
           <rect x="8" y="1" width="4" height="12" rx="1" fill="white" />
         </svg>
-        <svg
-          id="iconPlay"
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style="display: none"
-        >
+        <svg id="iconPlay" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none">
           <polygon points="2,1 13,7 2,13" fill="white" />
         </svg>
       </button>
@@ -962,61 +840,38 @@
       <div class="container">
         <p class="section-label">The Process</p>
         <h2 class="section-title">How GGBridge Works</h2>
-        <p class="section-sub">
-          Three steps between you and your game. No international card needed.
-        </p>
+        <p class="section-sub">Three steps between you and your game. No international card needed.</p>
         <div class="steps">
           <div class="step">
             <div class="step-num">01</div>
             <h3>Pick Your Game or Top-Up</h3>
-            <p>
-              Tell us what you want — a game key, platform credit, or mobile
-              top-up. Browse our deals or make a custom request.
-            </p>
+            <p>Tell us what you want — a game key, platform credit, or mobile top-up. Browse our deals or make a custom request.</p>
           </div>
           <div class="step">
             <div class="step-num">02</div>
-            <h3>Pay in Naira</h3>
-            <p>
-              We send you a payment link or bank transfer details. No dollar
-              card, no stress. Simple naira payment.
-            </p>
+            <h3>Secure Your Payment</h3>
+            <p>Receive your custom transaction details and settle it seamlessly. No dollar card, no hassle.</p>
           </div>
           <div class="step">
             <div class="step-num">03</div>
             <h3>Get Your Game</h3>
-            <p>
-              We deliver your key or complete your purchase and send proof. Most
-              orders done same day.
-            </p>
+            <p>We deliver your key or complete your purchase and send proof. Most orders done same day.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section
-      id="services"
-      style="
-        background: var(--card);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-      "
-    >
+    <section id="services" style="background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
       <div class="container">
         <p class="section-label">What We Offer</p>
         <h2 class="section-title">Our Services</h2>
-        <p class="section-sub">
-          Everything a Nigerian gamer needs — handled, in naira.
-        </p>
+        <p class="section-sub">Everything a gamer needs — handled natively.</p>
         <div class="services-grid">
           <div class="service-card">
             <span class="service-tag tag-proxy">Proxy Purchase</span>
             <h3>Platform Top-Ups &amp; Purchases</h3>
-            <p>
-              We buy on your behalf on any international platform. You pay us in
-              naira, we handle the rest.
-            </p>
+            <p>We buy on your behalf on any international platform. You stay secure, we handle the rest.</p>
             <ul class="service-list">
               <li>PSN Wallet &amp; PS Plus</li>
               <li>Xbox Credits &amp; Game Pass</li>
@@ -1028,25 +883,19 @@
           <div class="service-card">
             <span class="service-tag tag-keys">Digital Game Keys</span>
             <h3>Discounted Game Keys</h3>
-            <p>
-              We source keys during major sales and pass the savings to you. Pay
-              naira, get your key instantly.
-            </p>
+            <p>We source keys during major sales and pass the savings to you. Get your key instantly.</p>
             <ul class="service-list">
               <li>Steam game keys</li>
               <li>PSN digital codes</li>
               <li>Xbox digital codes</li>
-              <li>Sale prices in naira</li>
+              <li>Campaign prices everywhere</li>
               <li>Verified, working keys</li>
             </ul>
           </div>
           <div class="service-card">
             <span class="service-tag tag-mobile">Mobile Games</span>
             <h3>Mobile Game Top-Ups</h3>
-            <p>
-              Diamonds, UC, Robux, CP — whatever your game needs. Fast,
-              reliable, naira payment.
-            </p>
+            <p>Diamonds, UC, Robux, CP — whatever your game needs. Fast, reliable fulfillment.</p>
             <ul class="service-list">
               <li>Mobile Legends Diamonds</li>
               <li>PUBG Mobile UC</li>
@@ -1064,138 +913,63 @@
       <div class="container">
         <p class="section-label">GGBridge Sale Events</p>
         <h2 class="section-title">Our Seasonal Sales</h2>
-        <p class="section-sub">
-          We run campaigns aligned to global gaming sales. Whichever one is live
-          right now lights up automatically.
-        </p>
+        <p class="section-sub">We run campaigns aligned to global gaming sales. Whichever one is live right now lights up automatically.</p>
         <div class="sales-grid">
-          <div
-            class="sale-card sale-summer"
-            data-sale="summer"
-            data-start="06-01"
-            data-end="07-31"
-            data-name="GG Summer Drop"
-          >
+          <div class="sale-card sale-summer" data-sale="summer" data-start="06-01" data-end="07-31" data-name="GG Summer Drop">
             <span class="sale-badge" data-badge>June – July</span>
             <span class="sale-icon">SUMMER</span>
             <div class="sale-name">GG Summer Drop</div>
             <div class="sale-period">June – July</div>
-            <div class="sale-desc">
-              Our biggest annual event. Massive discounts on Steam, PSN &amp;
-              Xbox aligned with global summer sales.
-            </div>
+            <div class="sale-desc">Our biggest annual event. Massive discounts on Steam, PSN &amp; Xbox aligned with global summer sales.</div>
           </div>
-          <div
-            class="sale-card sale-winter"
-            data-sale="winter"
-            data-start="12-01"
-            data-end="01-15"
-            data-name="Freeze Frame Sale"
-          >
+          <div class="sale-card sale-winter" data-sale="winter" data-start="12-01" data-end="01-15" data-name="Freeze Frame Sale">
             <span class="sale-badge" data-badge>December</span>
             <span class="sale-icon">WINTER</span>
             <div class="sale-name">Freeze Frame Sale</div>
             <div class="sale-period">December – January</div>
-            <div class="sale-desc">
-              Cold season, hot prices. We stock up on winter sale keys and bring
-              the deals to your WhatsApp.
-            </div>
+            <div class="sale-desc">Cold season, hot prices. We stock up on winter sale keys and bring the deals straight to you.</div>
           </div>
-          <div
-            class="sale-card sale-black"
-            data-sale="black"
-            data-start="11-20"
-            data-end="11-30"
-            data-name="The Black Cartridge"
-          >
+          <div class="sale-card sale-black" data-sale="black" data-start="11-20" data-end="11-30" data-name="The Black Cartridge">
             <span class="sale-badge" data-badge>November</span>
             <span class="sale-icon">BLACK</span>
             <div class="sale-name">The Black Cartridge</div>
             <div class="sale-period">Black Friday Week</div>
-            <div class="sale-desc">
-              Limited drops, deepest discounts of the year. First come, first
-              served. No jokes.
-            </div>
+            <div class="sale-desc">Limited drops, deepest discounts of the year. First come, first served. No jokes.</div>
           </div>
-          <div
-            class="sale-card sale-spring"
-            data-sale="spring"
-            data-start="03-01"
-            data-end="04-15"
-            data-name="Level Up Season"
-          >
+          <div class="sale-card sale-spring" data-sale="spring" data-start="03-01" data-end="04-15" data-name="Level Up Season">
             <span class="sale-badge" data-badge>March</span>
             <span class="sale-icon">SPRING</span>
             <div class="sale-name">Level Up Season</div>
             <div class="sale-period">March – April</div>
-            <div class="sale-desc">
-              New season, new games. Spring sale deals on fresh titles and
-              underrated gems.
-            </div>
+            <div class="sale-desc">New season, new games. Spring sale deals on fresh titles and underrated gems.</div>
           </div>
-          <div
-            class="sale-card sale-halloween"
-            data-sale="halloween"
-            data-start="10-25"
-            data-end="10-31"
-            data-name="Respawn Night"
-          >
+          <div class="sale-card sale-halloween" data-sale="halloween" data-start="10-25" data-end="10-31" data-name="Respawn Night">
             <span class="sale-badge" data-badge>October</span>
             <span class="sale-icon">NIGHT</span>
             <div class="sale-name">Respawn Night</div>
             <div class="sale-period">Halloween Week</div>
-            <div class="sale-desc">
-              Horror games, survival titles, and spooky deals. You'll respawn,
-              but these prices won't.
-            </div>
+            <div class="sale-desc">Horror games, survival titles, and spooky deals. You'll respawn, but these prices won't.</div>
           </div>
-          <div
-            class="sale-card sale-back"
-            data-sale="back"
-            data-start="08-01"
-            data-end="09-15"
-            data-name="New Game+ Sale"
-          >
+          <div class="sale-card sale-back" data-sale="back" data-start="08-01" data-end="09-15" data-name="New Game+ Sale">
             <span class="sale-badge" data-badge>August</span>
             <span class="sale-icon">NEW+</span>
             <div class="sale-name">New Game+ Sale</div>
             <div class="sale-period">August – September</div>
-            <div class="sale-desc">
-              Back to school energy, new game+. Perfect time to grab titles you
-              missed all year.
-            </div>
+            <div class="sale-desc">Back to school energy, new game+. Perfect time to grab titles you missed all year.</div>
           </div>
-          <div
-            class="sale-card sale-val"
-            data-sale="valentine"
-            data-start="02-10"
-            data-end="02-17"
-            data-name="2-Player Deal"
-          >
+          <div class="sale-card sale-val" data-sale="valentine" data-start="02-10" data-end="02-17" data-name="2-Player Deal">
             <span class="sale-badge" data-badge>February</span>
             <span class="sale-icon">P2</span>
             <div class="sale-name">2-Player Deal</div>
             <div class="sale-period">Valentine's Week</div>
-            <div class="sale-desc">
-              Buy for yourself. Buy for your player 2. Co-op games, gift codes,
-              and duo bundles.
-            </div>
+            <div class="sale-desc">Buy for yourself. Buy for your player 2. Co-op games, gift codes, and duo bundles.</div>
           </div>
-          <div
-            class="sale-card sale-easter"
-            data-sale="easter"
-            data-start="04-16"
-            data-end="04-22"
-            data-name="Extra Life Sale"
-          >
+          <div class="sale-card sale-easter" data-sale="easter" data-start="04-16" data-end="04-22" data-name="Extra Life Sale">
             <span class="sale-badge" data-badge>April</span>
             <span class="sale-icon">+LIFE</span>
             <div class="sale-name">Extra Life Sale</div>
             <div class="sale-period">Easter Weekend</div>
-            <div class="sale-desc">
-              Easter eggs hidden in every deal. Surprise discounts and bundle
-              drops over the long weekend.
-            </div>
+            <div class="sale-desc">Easter eggs hidden in every deal. Surprise discounts and bundle drops over the long weekend.</div>
           </div>
         </div>
       </div>
@@ -1208,49 +982,40 @@
           <div class="order-info">
             <p class="section-label">Place an Order</p>
             <h2>Ready to Play?</h2>
-            <p>
-              Fill in your details and we'll reach out on WhatsApp with your
-              price and payment details. Most orders completed same day.
-            </p>
+            <p>Fill in your details and we'll reach out directly with your price and fulfillment details. Most orders completed same day.</p>
             <a
               href="https://wa.me/2347077599508?text=Hey%20GGBridge,%20my%20name%20is%20______.%20I%20am%20interested%20in%20______."
               target="_blank"
               class="wa-order-btn"
-              >Send a Direct Message on WhatsApp</a
+              >Send a Direct Message</a
             >
             <div class="trust-items">
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>WhatsApp Confirmation</strong>
-                  <span
-                    >Every order confirmed directly on WhatsApp. No bots.</span
-                  >
+                  <strong>Direct Confirmation</strong>
+                  <span>Every order confirmed directly by actual human support.</span>
                 </div>
               </div>
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
                   <strong>Same-Day Fulfillment</strong>
-                  <span>Most orders done within hours of payment.</span>
+                  <span>Most orders done within hours of confirmation.</span>
                 </div>
               </div>
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
-                  <strong>100% Naira Payments</strong>
-                  <span
-                    >Bank transfer or Paystack. No foreign card needed.</span
-                  >
+                  <strong>100% Secure System</strong>
+                  <span>Global payments handled with ease. No regional borders.</span>
                 </div>
               </div>
               <div class="trust-item">
                 <div class="trust-bullet"></div>
                 <div class="trust-text">
                   <strong>Proof Sent Always</strong>
-                  <span
-                    >Screenshot or key sent immediately after fulfillment.</span
-                  >
+                  <span>Screenshot or digital code sent immediately after fulfillment.</span>
                 </div>
               </div>
             </div>
@@ -1273,53 +1038,33 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section
-      style="background: var(--card); border-top: 1px solid var(--border)"
-    >
+    <section style="background: var(--card); border-top: 1px solid var(--border)">
       <div class="container">
         <p class="section-label">Reviews</p>
         <h2 class="section-title">What Gamers Say</h2>
         <div class="testi-grid">
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <p>
-              "Ordered FIFA 25 during the Summer Drop. Got my Steam key in 2
-              hours. Price was fair and they sent proof immediately. This is the
-              only way I'm buying games from now."
-            </p>
+            <p>"Ordered FIFA 25 during the Summer Drop. Got my Steam key in 2 hours. Price was fair and they sent proof immediately. This is the only way I'm buying games from now."</p>
             <div class="testi-author">
               <div class="testi-avatar">K</div>
-              <div class="testi-name">
-                <strong>Kelechi A.</strong><span>Lagos · Steam Customer</span>
-              </div>
+              <div class="testi-name"><strong>Kelechi A.</strong><span>Steam Customer</span></div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <p>
-              "I've been trying to top up my PSN for months. GGBridge sorted me
-              out in 30 minutes. Naira transfer, clean. No stress at all."
-            </p>
+            <p>"I've been trying to top up my PSN for months. GGBridge sorted me out in 30 minutes. Clean transaction. No stress at all."</p>
             <div class="testi-author">
               <div class="testi-avatar">T</div>
-              <div class="testi-name">
-                <strong>Tolu M.</strong><span>Abuja · PSN Customer</span>
-              </div>
+              <div class="testi-name"><strong>Tolu M.</strong><span>PSN Customer</span></div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <p>
-              "Got 6000 diamonds for Mobile Legends at the best rate I've seen.
-              Came with a screenshot and everything. Will always come back
-              here."
-            </p>
+            <p>"Got 6000 diamonds for Mobile Legends at the best rate I've seen. Came with a screenshot and everything. Will always come back here."</p>
             <div class="testi-author">
               <div class="testi-avatar">E</div>
-              <div class="testi-name">
-                <strong>Emmanuel O.</strong
-                ><span>Port Harcourt · Mobile Customer</span>
-              </div>
+              <div class="testi-name"><strong>Emmanuel O.</strong><span>Mobile Customer</span></div>
             </div>
           </div>
         </div>
@@ -1332,11 +1077,7 @@
         <div class="footer-top">
           <div>
             <div class="footer-logo">GGBridge</div>
-            <p class="footer-desc">
-              Nigeria's gaming access layer. We bridge the gap between Nigerian
-              naira and global gaming platforms — so you never miss a game or a
-              deal.
-            </p>
+            <p class="footer-desc">Global gaming access layer. We bridge the gap between global gaming platforms and gamers everywhere — so you never miss a game or a deal.</p>
           </div>
           <div class="footer-col">
             <h4>Services</h4>
@@ -1360,12 +1101,12 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p class="footer-copy">© 2026 GGBridge. Pay Local. Play Global.</p>
+          <p class="footer-copy">© 2026 GGBridge. Stack games, not bills.</p>
           <a
             href="https://wa.me/2347077599508?text=Hi%20GGBridge%20team!%20My%20name%20is%20______.%20I%20just%20visited%20your%20website%20and%20I%E2%80%99m%20interested%20in%20buying%20games.%20Please%20guide%20me%20on%20how%20it%20works."
             target="_blank"
             class="footer-wa"
-            >Chat on WhatsApp</a
+            >Contact Support</a
           >
         </div>
       </div>
@@ -1473,11 +1214,13 @@
           var now = new Date();
           var todayKey = pad(now.getMonth() + 1) + "-" + pad(now.getDate());
           var cards = document.querySelectorAll(".sale-card[data-sale]");
-          var liveCard = null;
+          var badgeTextEl = document.getElementById("hero-badge-text");
+          var liveCampaignName = "";
 
           cards.forEach(function (card) {
             var start = card.getAttribute("data-start");
             var end = card.getAttribute("data-end");
+            var name = card.getAttribute("data-name");
             var badge = card.querySelector("[data-badge]");
             var periodLabel = card.querySelector(".sale-period").textContent;
             var isLive = isDateInRange(todayKey, start, end);
@@ -1494,8 +1237,18 @@
               }
             }
 
-            if (isLive && !liveCard) liveCard = card;
+            if (isLive) {
+              liveCampaignName = name;
+            }
           });
+
+          if (badgeTextEl) {
+            if (liveCampaignName) {
+              badgeTextEl.textContent = liveCampaignName + " — Now Live";
+            } else {
+              badgeTextEl.textContent = "GG Discount Engine — Active";
+            }
+          }
         }
 
         document.addEventListener("DOMContentLoaded", refreshActiveSale);
