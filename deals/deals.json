@@ -1,0 +1,583 @@
+{
+ "version": 1,
+ "business": "GGBridge",
+ "whatsapp": "2347077599508",
+ "siteUrl": "https://ggbridge.fun",
+ "publishedAt": "2026-10-22T13:09:18.187Z",
+ "expiresAt": "2026-10-25T13:09:18.187Z",
+ "items": [
+  {
+   "code": "GG-UN5JM",
+   "name": "Sniper Elite: Resistance Deluxe Edition",
+   "images": [
+    "https://store-images.s-microsoft.com/image/apps.55270.13852949396122422.d61ab6d2-169c-4488-a494-1cd1d6f5bafa.6e3d825c-eaf9-4635-b5ba-d640e5262da7?w=640",
+    "https://store-images.s-microsoft.com/image/apps.24523.13852949396122422.d61ab6d2-169c-4488-a494-1cd1d6f5bafa.cf2154d3-8eae-4b8c-b207-69fe82e641da?w=640"
+   ],
+   "platform": "Xbox / PC gift code",
+   "price": 41000,
+   "was": {
+    "price": 45830,
+    "label": "elsewhere in Nigeria"
+   },
+   "discountPct": 10,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": null,
+   "releaseDate": "2025-01-30"
+  },
+  {
+   "code": "GG-VW53L",
+   "name": "PlayStation Store $100 Gift Card (US)",
+   "images": [
+    "https://cdn.allkeyshop.com/api/videogame_2/products_prepaids/000/000/734/en.webp"
+   ],
+   "platform": "Gift card code · US account",
+   "price": 155500,
+   "was": {
+    "price": 172800,
+    "label": "at Codashop"
+   },
+   "discountPct": 10,
+   "badges": [],
+   "group": "giftcard",
+   "brand": "playstation",
+   "popularity": null,
+   "releaseDate": null
+  },
+  {
+   "code": "GG-NMV9L",
+   "name": "PlayStation Store $75 Gift Card (US)",
+   "images": [
+    "https://cdn.allkeyshop.com/api/videogame_2/products_prepaids/000/000/764/en.webp"
+   ],
+   "platform": "Gift card code · US account",
+   "price": 116500,
+   "was": {
+    "price": 129600,
+    "label": "at Codashop"
+   },
+   "discountPct": 10,
+   "badges": [],
+   "group": "giftcard",
+   "brand": "playstation",
+   "popularity": null,
+   "releaseDate": null
+  },
+  {
+   "code": "GG-9EQH4",
+   "name": "Battlefield 6",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1792168547",
+    "https://cdn.allkeyshop.com/images/catalog/000/045/369/cover.webp"
+   ],
+   "platform": "EA app PC key",
+   "price": 54500,
+   "was": {
+    "price": 95305,
+    "label": "on Steam"
+   },
+   "discountPct": 42,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 15,
+   "releaseDate": "2025-10-10"
+  },
+  {
+   "code": "GG-TUETX",
+   "name": "Kingdom Come Deliverance 2",
+   "images": [
+    "https://cdn.allkeyshop.com/images/catalog/000/163/873/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 35500,
+   "was": {
+    "price": 81688,
+    "label": "on Steam"
+   },
+   "discountPct": 56,
+   "badges": [
+    "Hot deal"
+   ],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 33,
+   "releaseDate": "2025-02-04"
+  },
+  {
+   "code": "GG-76QFZ",
+   "name": "Project Zomboid",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg?t=1787740093",
+    "https://cdn.allkeyshop.com/images/catalog/000/001/747/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 16000,
+   "was": {
+    "price": 34029,
+    "label": "on Steam"
+   },
+   "discountPct": 52,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 12,
+   "releaseDate": "2013-11-08"
+  },
+  {
+   "code": "GG-LSQGV",
+   "name": "Tabletop Simulator",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/286160/header.jpg?t=1772387518",
+    "https://cdn.allkeyshop.com/images/catalog/000/002/075/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 9000,
+   "was": {
+    "price": 27220,
+    "label": "on Steam"
+   },
+   "discountPct": 66,
+   "badges": [
+    "Hot deal"
+   ],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 44,
+   "releaseDate": "2015-06-05"
+  },
+  {
+   "code": "GG-S53C4",
+   "name": "PlayStation Store $50 Gift Card (US)",
+   "images": [
+    "https://cdn.allkeyshop.com/api/videogame_2/products_prepaids/000/000/722/en.webp"
+   ],
+   "platform": "Gift card code · US account",
+   "price": 77500,
+   "was": {
+    "price": 86400,
+    "label": "at Codashop"
+   },
+   "discountPct": 10,
+   "badges": [],
+   "group": "giftcard",
+   "brand": "playstation",
+   "popularity": null,
+   "releaseDate": null
+  },
+  {
+   "code": "GG-K9E3U",
+   "name": "Dragon's Dogma 2",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2054970/header.jpg?t=1791504871",
+    "https://cdn.allkeyshop.com/images/catalog/000/102/079/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 25500,
+   "was": {
+    "price": 54454,
+    "label": "on Steam"
+   },
+   "discountPct": 53,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 32,
+   "releaseDate": "2024-03-22"
+  },
+  {
+   "code": "GG-G6TLM",
+   "name": "Ready Or Not",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1144200/2b44644b033a996a9efb95051bb01809215d0d23/header.jpg?t=1790846188",
+    "https://cdn.allkeyshop.com/images/catalog/000/080/413/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 32500,
+   "was": {
+    "price": 68071,
+    "label": "on Steam"
+   },
+   "discountPct": 52,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 43,
+   "releaseDate": "2023-12-13"
+  },
+  {
+   "code": "GG-FY6KW",
+   "name": "Ace Combat 8",
+   "images": [
+    "https://cdn.allkeyshop.com/images/catalog/000/118/289/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 79000,
+   "was": {
+    "price": 95305,
+    "label": "on Steam"
+   },
+   "discountPct": 17,
+   "badges": [
+    "New"
+   ],
+   "group": "new",
+   "brand": null,
+   "popularity": 24,
+   "releaseDate": "2026-10-02"
+  },
+  {
+   "code": "GG-T4U9V",
+   "name": "Satisfactory",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header.jpg?t=1791192059",
+    "https://cdn.allkeyshop.com/images/catalog/000/026/180/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 37000,
+   "was": {
+    "price": 54454,
+    "label": "on Steam"
+   },
+   "discountPct": 32,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 45,
+   "releaseDate": "2024-09-10"
+  },
+  {
+   "code": "GG-M35HK",
+   "name": "Gears of War E-Day",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3010850/1abb0c5ef76c14f463dd6e3964adb64f984237d2/header.jpg?t=1792168004",
+    "https://cdn.allkeyshop.com/images/catalog/000/171/849/cover.webp"
+   ],
+   "platform": "Xbox + PC key",
+   "price": 81500,
+   "was": {
+    "price": 95305,
+    "label": "on Xbox"
+   },
+   "discountPct": 14,
+   "badges": [
+    "New"
+   ],
+   "group": "new",
+   "brand": null,
+   "popularity": 26,
+   "releaseDate": "2026-10-06"
+  },
+  {
+   "code": "GG-5JFP8",
+   "name": "Valheim",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/1888731b59362fca6c026cdbafa3dfffd45c3146/header_alt_assets_6.jpg?t=1791544831",
+    "https://cdn.allkeyshop.com/images/catalog/000/067/529/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 36000,
+   "was": {
+    "price": 40837,
+    "label": "on Steam"
+   },
+   "discountPct": 11,
+   "badges": [
+    "New"
+   ],
+   "group": "new",
+   "brand": null,
+   "popularity": 31,
+   "releaseDate": "2026-09-09"
+  },
+  {
+   "code": "GG-P7DT6",
+   "name": "No Man's Sky",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/84d0df065c36eb8ded7bdf0d8fccd19d43b6c005/header.jpg?t=1789479023",
+    "https://cdn.allkeyshop.com/images/catalog/000/003/251/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 26500,
+   "was": {
+    "price": 81688,
+    "label": "on Steam"
+   },
+   "discountPct": 67,
+   "badges": [
+    "Hot deal"
+   ],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 60,
+   "releaseDate": "2016-08-12"
+  },
+  {
+   "code": "GG-V2PWU",
+   "name": "Farming Simulator 25",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2300320/c2a205133d23cd24faf3c152d972a1d0177661b8/header.jpg?t=1788874602",
+    "https://cdn.allkeyshop.com/images/catalog/000/168/182/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 26000,
+   "was": {
+    "price": 40837,
+    "label": "on Steam"
+   },
+   "discountPct": 36,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 38,
+   "releaseDate": "2024-11-12"
+  },
+  {
+   "code": "GG-3RGUJ",
+   "name": "The Outlast Trials",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1304930/e3b17cf268afa51334b63124a2fe0aef3f1d136b/header_alt_assets_4.jpg?t=1792554994",
+    "https://cdn.allkeyshop.com/images/catalog/000/038/780/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 21000,
+   "was": {
+    "price": 54454,
+    "label": "on Steam"
+   },
+   "discountPct": 61,
+   "badges": [
+    "Hot deal"
+   ],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 51,
+   "releaseDate": "2024-03-05"
+  },
+  {
+   "code": "GG-QAFD5",
+   "name": "Valor Mortis",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2828710/e729c7f909db5c52ea780923d9b258517162866a/header.jpg?t=1792608118",
+    "https://cdn.allkeyshop.com/images/catalog/000/195/960/cover.webp"
+   ],
+   "platform": "Xbox + PC key",
+   "price": 43000,
+   "was": {
+    "price": 54454,
+    "label": "on Xbox"
+   },
+   "discountPct": 21,
+   "badges": [
+    "New"
+   ],
+   "group": "new",
+   "brand": null,
+   "popularity": 29,
+   "releaseDate": "2026-10-13"
+  },
+  {
+   "code": "GG-VYJD6",
+   "name": "Helldivers 2",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/850e2f9e5bb15c5706bb9a1edc832f4f782e8be5/header.jpg?t=1792487611",
+    "https://cdn.allkeyshop.com/images/catalog/000/140/065/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 40000,
+   "was": {
+    "price": 54454,
+    "label": "on Steam"
+   },
+   "discountPct": 26,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 35,
+   "releaseDate": "2024-02-08"
+  },
+  {
+   "code": "GG-CEJ9T",
+   "name": "The Blood Of Dawnwalker",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3751260/a7062f3b59d491c2678e3fd7ce2672858e480641/header.jpg?t=1792665991",
+    "https://cdn.allkeyshop.com/images/catalog/000/181/159/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 76000,
+   "was": {
+    "price": 95305,
+    "label": "on Steam"
+   },
+   "discountPct": 20,
+   "badges": [
+    "New"
+   ],
+   "group": "new",
+   "brand": null,
+   "popularity": 39,
+   "releaseDate": "2026-09-03"
+  },
+  {
+   "code": "GG-RRCZC",
+   "name": "Hearts of Iron 4",
+   "images": [
+    "https://cdn.allkeyshop.com/images/catalog/000/010/540/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 16500,
+   "was": {
+    "price": 68071,
+    "label": "on Steam"
+   },
+   "discountPct": 75,
+   "badges": [
+    "Hot deal"
+   ],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 64,
+   "releaseDate": "2016-06-06"
+  },
+  {
+   "code": "GG-L6DP4",
+   "name": "Dayz",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221100/header.jpg?t=1792059745",
+    "https://cdn.allkeyshop.com/images/catalog/000/001/398/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 38500,
+   "was": {
+    "price": 68071,
+    "label": "on Steam"
+   },
+   "discountPct": 43,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 54,
+   "releaseDate": "2018-12-13"
+  },
+  {
+   "code": "GG-JAUP3",
+   "name": "PlayStation Store $25 Gift Card (US)",
+   "images": [
+    "https://cdn.allkeyshop.com/api/videogame_2/products_prepaids/000/000/767/en.webp"
+   ],
+   "platform": "Gift card code · US account",
+   "price": 38500,
+   "was": {
+    "price": 43200,
+    "label": "at Codashop"
+   },
+   "discountPct": 10,
+   "badges": [],
+   "group": "giftcard",
+   "brand": "playstation",
+   "popularity": null,
+   "releaseDate": null
+  },
+  {
+   "code": "GG-37WUG",
+   "name": "Cities Skylines 2",
+   "images": [
+    "https://cdn.allkeyshop.com/images/catalog/000/106/882/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 43500,
+   "was": {
+    "price": 68071,
+    "label": "on Steam"
+   },
+   "discountPct": 36,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 62,
+   "releaseDate": "2023-10-24"
+  },
+  {
+   "code": "GG-7R3KW",
+   "name": "Terraria",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1792530636",
+    "https://cdn.allkeyshop.com/images/catalog/000/001/903/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 8500,
+   "was": {
+    "price": 13603,
+    "label": "on Steam"
+   },
+   "discountPct": 37,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 69,
+   "releaseDate": "2011-05-16"
+  },
+  {
+   "code": "GG-GYQ4Y",
+   "name": "Monster Hunter Wilds",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2246340/header.jpg?t=1787549555",
+    "https://cdn.allkeyshop.com/images/catalog/000/154/841/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 36000,
+   "was": {
+    "price": 40837,
+    "label": "on Steam"
+   },
+   "discountPct": 11,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 57,
+   "releaseDate": "2025-02-28"
+  },
+  {
+   "code": "GG-MXC8V",
+   "name": "S.T.A.L.K.E.R. 2 Heart of Chornobyl",
+   "images": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1643320/9c8da5440ab033af46b9c7fecfd37166479d2ea6/header.jpg?t=1790259592",
+    "https://cdn.allkeyshop.com/images/catalog/000/045/424/cover.webp"
+   ],
+   "platform": "Steam PC key",
+   "price": 50000,
+   "was": {
+    "price": 57177,
+    "label": "on Steam"
+   },
+   "discountPct": 12,
+   "badges": [],
+   "group": "favourite",
+   "brand": null,
+   "popularity": 71,
+   "releaseDate": "2024-11-20"
+  },
+  {
+   "code": "GG-8T4QK",
+   "name": "Minecraft Dungeons 2",
+   "images": [
+    "https://cdn.allkeyshop.com/images/catalog/000/208/839/cover.webp"
+   ],
+   "platform": "Xbox + PC key",
+   "price": 36500,
+   "was": {
+    "price": 40837,
+    "label": "on Xbox"
+   },
+   "discountPct": 10,
+   "badges": [
+    "New"
+   ],
+   "group": "new",
+   "brand": null,
+   "popularity": 66,
+   "releaseDate": "2026-09-29"
+  }
+ ]
+}
