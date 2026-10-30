@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GGBridge Movies | Netflix for ₦100 a day</title>
+<meta name="description" content="Watch any movie or show on Netflix for ₦100 for 24 hours. Join the GGBridge Telegram channel to get access.">
+<meta property="og:title" content="Netflix for ₦100. 24 hours.">
+<meta property="og:description" content="Any movie, any show, for a full day. Join our Telegram channel to get access.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0912">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0912; --panel:#15122A; --panel-2:#1C1838; --line:#2E2856;
+  --text:#FFFFFF; --soft:#E7E3F7; --muted:#B9AEE6; --dim:#8F88AD;
+  --purple:#8B5CF6; --blue:#3B82F6; --gold:#FBBF24; --gold-soft:#FDE68A; --orange:#F97316;
+  --tg:#229ED9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:96px}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.display{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800;letter-spacing:-0.03em;line-height:0.95}
+.grad{background:linear-gradient(90deg,var(--purple),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* marquee lights */
+.marquee{background:#1A1533;border-bottom:3px solid var(--gold);padding:12px 0;overflow:hidden}
+.bulbs{display:flex;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}
+.bulb{width:12px;height:12px;border-radius:50%;background:var(--gold-soft);box-shadow:0 0 10px 3px rgba(251,191,36,.55);flex-shrink:0;animation:blink 1.6s infinite}
+.bulb:nth-child(even){animation-delay:.8s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.45}}
+@media (prefers-reduced-motion:reduce){.bulb{animation:none}html{scroll-behavior:auto}}
+
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.5px;text-decoration:none}
+.logo span{color:var(--muted);font-weight:600}
+.pill-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel)}
+.pill-link:hover{border-color:var(--purple)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;font-weight:700;font-size:20px;padding:20px 32px;border-radius:999px;background:var(--tg);color:#fff;box-shadow:0 10px 30px rgba(34,158,217,.35);transition:transform .15s ease,box-shadow .15s ease;min-height:60px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(34,158,217,.5)}
+.btn:focus-visible,.pill-link:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn svg{flex-shrink:0}
+.btn-note{font-size:14px;color:var(--muted);margin-top:12px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center;padding:40px 0 64px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--gold);border:1px solid rgba(251,191,36,.4);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+.hero h1{font-size:clamp(52px,9vw,104px);margin:0 0 18px}
+.hero h1 .price{display:block;font-size:1.35em}
+.hero p.lead{font-size:clamp(18px,2.4vw,22px);color:var(--soft);max-width:520px;margin:0 0 30px}
+.strike{position:relative;color:var(--dim);white-space:nowrap}
+.strike::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:var(--orange);transform:rotate(-6deg);border-radius:3px}
+.popcorn{width:100%;max-width:320px;justify-self:center;transform:rotate(6deg)}
+
+/* trending */
+.trending{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+.trending h2{font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--muted);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-weight:600;font-size:15px}
+.chip.hot{border-color:var(--gold);color:var(--gold-soft)}
+
+/* sections */
+section.block{padding:72px 0}
+.block h2.title{font-size:clamp(34px,5vw,52px);margin:0 0 10px}
+.block p.sub{color:var(--muted);font-size:18px;margin:0 0 36px;max-width:620px}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px}
+.step .num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800;font-size:20px;background:var(--gold);color:#1A0B3D;margin-bottom:16px}
+.step h3{margin:0 0 6px;font-size:20px}
+.step p{margin:0;color:var(--muted);font-size:16px}
+
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.plan{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:6px}
+.plan.featured{border:2px solid transparent;background:linear-gradient(160deg,#1F1A44,#141130) padding-box,linear-gradient(135deg,var(--purple),var(--blue)) border-box;box-shadow:0 0 40px rgba(139,92,246,.22)}
+.plan.featured .amount{background:linear-gradient(90deg,var(--purple),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.plan.featured .tag{background:linear-gradient(90deg,var(--purple),var(--blue));color:#fff}
+.plan .tag{position:absolute;top:-13px;left:24px;background:var(--gold);color:#1A0B3D;font-size:12px;font-weight:800;letter-spacing:.12em;padding:5px 12px;border-radius:999px}
+.plan .name{font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.plan.featured .name{color:#C4B5FD}
+.plan .amount{font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800;font-size:64px;letter-spacing:-2px;line-height:1}
+.plan .per{font-size:16px;color:var(--muted)}
+.plan.featured .per{color:#C4B5FD}
+.plan .detail{margin-top:12px;font-size:15px;color:var(--soft)}
+.plan.featured .detail{color:var(--soft)}
+
+/* premium weekend card */
+.plan.vip{border:2px solid transparent;background:linear-gradient(160deg,#1E1530,#120E1F) padding-box,linear-gradient(135deg,#FDE68A,#F59E0B 40%,#92400E 70%,#FDE68A) border-box;box-shadow:0 0 40px rgba(251,191,36,.18);overflow:hidden}
+.plan.vip::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 0%,rgba(251,191,36,.22),transparent 55%);pointer-events:none}
+.plan.vip .tag{background:#0A0912;color:var(--gold);border:1px solid var(--gold);display:inline-flex;align-items:center;gap:6px;position:static;align-self:flex-start;margin-bottom:10px}
+.plan.vip .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:blink 1.2s infinite}
+.plan.vip .name{color:var(--gold);display:flex;align-items:center;gap:8px}
+.plan.vip .amount{background:linear-gradient(90deg,#FDE68A,#F59E0B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.plan.vip .per{color:var(--gold-soft)}
+.plan.vip .rule{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(251,191,36,.45);display:grid;gap:8px;font-size:15px;color:var(--soft)}
+.plan.vip .rule div{display:flex;gap:10px;align-items:flex-start}
+.plan.vip .rule svg{flex-shrink:0;margin-top:3px}
+.plan.vip .detail{color:var(--muted);font-size:14px;margin-top:10px}
+
+/* FAQ */
+.faq{display:grid;gap:12px;max-width:760px}
+details{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:0 22px}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:18px;padding:20px 0;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;color:var(--gold);font-weight:500;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 20px;color:var(--muted);font-size:16px}
+
+/* final CTA */
+.final{text-align:center;padding:80px 0 72px;background:radial-gradient(ellipse at center top,rgba(139,92,246,.22),transparent 65%)}
+.final h2{font-size:clamp(40px,7vw,76px);margin:0 0 14px}
+.final p{color:var(--soft);font-size:19px;margin:0 0 30px}
+
+footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--dim);font-size:14px}
+footer .row{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+
+/* sticky mobile CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(10,9,18,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:none;z-index:20}
+.sticky .btn{width:100%;font-size:18px;padding:16px 20px;min-height:56px}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding:24px 0 48px;text-align:left}
+  .popcorn{max-width:200px;order:-1;justify-self:start;margin-bottom:-6px}
+  .steps,.plans{grid-template-columns:1fr}
+  .plans .plan.featured{order:-1}
+  .sticky{display:block}
+  .hero .btn{width:100%}
+  section.block{padding:56px 0}
+  .bulb:nth-child(n+15){display:none}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+
+<div class="marquee" aria-hidden="true"><div class="bulbs" id="bulbs"></div></div>
+
+<div class="wrap">
+  <header>
+    <a class="logo" href="#top">GGBridge <span>Movies</span></a>
+    <a class="pill-link tg-link" href="https://t.me/+wNEBjOYwaVk5MDA0" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+      Join channel
+    </a>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">NOW SHOWING · EARLY ACCESS</span>
+        <h1 class="display">Netflix for <span class="price grad">₦100</span></h1>
+        <p class="lead">24 hours of Netflix. Any movie, any show, on your phone, laptop or TV. No <span class="strike">₦8,500</span> monthly bill.</p>
+        <a class="btn tg-link" href="https://t.me/+wNEBjOYwaVk5MDA0" target="_blank" rel="noopener">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+          Join our Telegram channel
+        </a>
+        <div class="btn-note">Free to join · Get your pass when the next batch opens</div>
+      </div>
+      <svg class="popcorn" viewBox="0 0 300 380" role="img" aria-label="Popcorn bucket">
+        <defs><clipPath id="pc"><path d="M44 150 L256 150 L226 372 L74 372 Z"/></clipPath></defs>
+        <g fill="#FFF6DC" stroke="#E8B94A" stroke-width="3">
+          <circle cx="24" cy="70" r="13"/><circle cx="284" cy="56" r="11"/><circle cx="44" cy="20" r="9"/>
+          <circle cx="150" cy="36" r="28"/><circle cx="102" cy="44" r="22"/><circle cx="200" cy="42" r="22"/>
+          <circle cx="126" cy="66" r="32"/><circle cx="176" cy="68" r="32"/><circle cx="84" cy="86" r="30"/>
+          <circle cx="216" cy="88" r="30"/><circle cx="150" cy="102" r="40"/><circle cx="104" cy="116" r="36"/>
+          <circle cx="196" cy="114" r="36"/><circle cx="66" cy="134" r="30"/><circle cx="236" cy="132" r="30"/>
+        </g>
+        <g fill="#F6D78B"><circle cx="162" cy="112" r="12"/><circle cx="116" cy="76" r="9"/><circle cx="206" cy="124" r="10"/></g>
+        <g clip-path="url(#pc)">
+          <rect x="0" y="140" width="300" height="240" fill="#F5F3FF"/>
+          <path d="M74 150 L105 150 L117 372 L96 372 Z M135 150 L165 150 L161 372 L139 372 Z M195 150 L226 150 L204 372 L183 372 Z" fill="#7C3AED"/>
+          <path d="M200 150 L256 150 L226 372 L188 372 Z" fill="#000" opacity=".14"/>
+        </g>
+        <rect x="34" y="134" width="232" height="26" rx="10" fill="#FBBF24"/>
+      </svg>
+    </div>
+  </main>
+</div>
+
+<div class="trending">
+  <div class="wrap">
+    <h2>TRENDING ON NETFLIX NIGERIA THIS WEEK</h2>
+    <div class="chips">
+      <span class="chip hot">Oversabi Aunty</span>
+      <span class="chip">Evil Dead Burn</span>
+      <span class="chip">Animals</span>
+      <span class="chip">Seriously Single Too</span>
+      <span class="chip">Blackout</span>
+      <span class="chip">Doing Life</span>
+    </div>
+  </div>
+</div>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <h2 class="title display">How it works</h2>
+    <p class="sub">Three steps from scrolling to watching.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Join the channel</h3><p>Tap the button and join our Telegram channel. It's free.</p></div>
+      <div class="step"><div class="num">2</div><h3>Grab a pass</h3><p>When slots open, pay ₦100. Payment details are shared in the channel.</p></div>
+      <div class="step"><div class="num">3</div><h3>Start watching</h3><p>Get your login and watch anything on Netflix for the next 24 hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="plans" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="title display">Pick your pass</h2>
+    <p class="sub">One screen per pass. Watch on the Netflix app or browser.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="name">Weekly</div>
+        <div class="amount">₦700</div>
+        <div class="per">7 days</div>
+        <div class="detail">Your slot is held all week. No daily top-ups.</div>
+      </div>
+      <div class="plan featured">
+        <span class="tag">MOST POPULAR</span>
+        <div class="name">Daily</div>
+        <div class="amount">₦100</div>
+        <div class="per">24 hours</div>
+        <div class="detail">Perfect for movie night. Any movie, any show.</div>
+      </div>
+      <div class="plan vip">
+        <span class="tag"><span class="dot" aria-hidden="true"></span>LIMITED SLOTS</span>
+        <div class="name">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBF24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7.1L12 17.3 5.8 21l1.6-7.1L2 9.2l7.1-.6z"/></svg>
+          Weekend VIP
+        </div>
+        <div class="amount">₦100</div>
+        <div class="per">Friday to Sunday · 3 days</div>
+        <div class="rule">
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Refer 3 friends</div>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 of them buy a pass</div>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Your whole weekend is unlocked</div>
+        </div>
+        <div class="detail">Few passes each week. Full details in the channel.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="title display">Questions</h2>
+    <p class="sub">Quick answers before you join.</p>
+    <div class="faq">
+      <details><summary>How does this work?</summary><p>You get access to a Netflix Premium account for the length of your pass. Each pass is one screen, so you can watch on one device at a time.</p></details>
+      <details><summary>What can I watch?</summary><p>Everything in the Netflix Nigeria library: Nollywood, Hollywood, series, anime, documentaries.</p></details>
+      <details><summary>How do I pay?</summary><p>Payment details are posted in the Telegram channel when slots open. Join the channel so you don't miss the next batch.</p></details>
+      <details><summary>Which devices work?</summary><p>Phone, tablet, laptop or smart TV. Anything that runs the Netflix app or a web browser.</p></details>
+      <details><summary>Is joining the channel free?</summary><p>Yes. Joining is free. You only pay when you buy a pass.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 class="display">Tonight's movie plan: <span class="grad">₦100</span></h2>
+    <p>Join the channel and be first in line for the next batch of passes.</p>
+    <a class="btn tg-link" href="https://t.me/+wNEBjOYwaVk5MDA0" target="_blank" rel="noopener">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+      Join our Telegram channel
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div>© <span id="yr">2026</span> GGBridge</div>
+    <div>GGBridge is an independent service and is not affiliated with or endorsed by Netflix.</div>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a class="btn tg-link" href="https://t.me/+wNEBjOYwaVk5MDA0" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+    Join on Telegram · ₦100 passes
+  </a>
+</div>
+
+<script>
+/* ============ SETTINGS: edit these ============ */
+
+// Your Telegram invite links. "default" is used when no ?v= is in the URL.
+// In each Facebook ad, set the website URL to e.g. https://ggbridge.fun/movies?v=trending
+// so each ad sends people to its own invite link and Telegram counts joins per ad.
+var TELEGRAM_LINKS = {
+  "default":    "https://t.me/+wNEBjOYwaVk5MDA0",
+  "trending":   "https://t.me/+INVITE_LINK_TRENDING",
+  "price":      "https://t.me/+INVITE_LINK_PRICE",
+  "movienight": "https://t.me/+INVITE_LINK_MOVIENIGHT",
+  "pass":       "https://t.me/+INVITE_LINK_PASS",
+  "story":      "https://t.me/+INVITE_LINK_STORY"
+};
+
+// Optional: your Meta Pixel ID (from Events Manager). Leave as is to skip.
+// When set, every Telegram button click is recorded as a "Lead" in Facebook Ads.
+var META_PIXEL_ID = "YOUR_PIXEL_ID";
+
+/* ============================================== */
+
+(function(){
+  // marquee bulbs
+  var b = document.getElementById('bulbs');
+  for (var i = 0; i < 28; i++){ var d = document.createElement('div'); d.className = 'bulb'; b.appendChild(d); }
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // pick the invite link for this ad
+  var v = '';
+  try { v = (new URLSearchParams(location.search).get('v') || '').toLowerCase(); } catch(e) {}
+  var link = TELEGRAM_LINKS[v] || TELEGRAM_LINKS['default'];
+  if (link.indexOf('INVITE_LINK') !== -1) { link = TELEGRAM_LINKS['default']; } // placeholder not filled yet
+  var links = document.querySelectorAll('.tg-link');
+  for (var j = 0; j < links.length; j++){ links[j].href = link; }
+
+  // Meta Pixel (only loads when an ID is set)
+  var pixelOn = META_PIXEL_ID && META_PIXEL_ID !== 'YOUR_PIXEL_ID';
+  if (pixelOn) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src='https://connect.facebook.net/en_US/fbevents.js';s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script');
+    fbq('init', META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+  for (var k = 0; k < links.length; k++){
+    links[k].addEventListener('click', function(){
+      if (pixelOn && window.fbq) { fbq('track', 'Lead', { content_name: 'telegram_join', variant: v || 'default' }); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
